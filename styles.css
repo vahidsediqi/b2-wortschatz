@@ -53,7 +53,7 @@
 }
 
 * { box-sizing: border-box; }
-html { height: 100%; -webkit-text-size-adjust: 100%; }
+html { height: 100%; -webkit-text-size-adjust: 100%; overscroll-behavior-x: none; }
 body {
   margin: 0;
   min-height: 100%;
@@ -188,6 +188,7 @@ h1 {
 .empty { padding: 28px 8px; text-align: center; color: var(--dim); }
 
 /* Card page */
+#cardView { overflow: hidden; } /* a card sliding away must not widen the page */
 .card-page {
   display: flex;
   flex-direction: column;
@@ -216,7 +217,7 @@ h1 {
 .icon-btn svg { width: 21px; height: 21px; }
 .icon-btn:disabled { opacity: .35; cursor: default; }
 
-.scene { flex: 1; min-height: 0; perspective: 1400px; }
+.scene { flex: 1; min-height: 0; perspective: 1400px; touch-action: pan-y; }
 .card {
   position: relative;
   width: 100%;

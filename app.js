@@ -362,8 +362,8 @@
   $("back").addEventListener("click", () => {
     location.replace("#" + state.tab);
   });
-  $("prev").addEventListener("click", () => step(-1));
-  $("next").addEventListener("click", () => step(1));
+  $("prev").addEventListener("click", () => slide(-1));
+  $("next").addEventListener("click", () => slide(1));
   if ("speechSynthesis" in window) {
     speechSynthesis.getVoices(); // starts loading the list, which some browsers fill late
     $("speak").addEventListener("click", speak);
@@ -372,8 +372,12 @@
   }
 
   const card = $("card");
+  let skipClick = false; // a swipe must not also flip the card
   const flip = () => setFlipped(!card.classList.contains("flipped"), true);
-  card.addEventListener("click", flip);
+  card.addEventListener("click", () => {
+    if (!skipClick) flip();
+    skipClick = false;
+  });
   card.addEventListener("keydown", (e) => {
     if (e.key === " " || e.key === "Enter") {
       e.preventDefault();
@@ -382,23 +386,99 @@
   });
   document.addEventListener("keydown", (e) => {
     if ($("cardView").hidden) return;
-    if (e.key === "ArrowLeft") step(-1);
-    if (e.key === "ArrowRight") step(1);
+    if (e.key === "ArrowLeft") slide(-1);
+    if (e.key === "ArrowRight") slide(1);
     if (e.key === "Escape") $("back").click();
   });
 
-  // Horizontal swipe moves between words; vertical movement stays free for
-  // scrolling a long explanation.
-  let startX = 0, startY = 0;
+  /* Moving between words: the card leaves on one side and the next word
+     arrives from the other. Swipes, the arrow buttons and keys all use this. */
   const scene = $("scene");
+  const calm = window.matchMedia("(prefers-reduced-motion: reduce)");
+  let sliding = false;
+
+  const pose = (x) => "translateX(" + x + "px) rotate(" + (x / scene.offsetWidth) * 5 + "deg)";
+  const move = (from, to, duration, easing) =>
+    scene.animate([{ transform: pose(from) }, { transform: pose(to) }], { duration, easing, fill: "forwards" });
+
+  async function settle(fromX) {
+    sliding = true;
+    scene.style.transform = "";
+    const back = move(fromX, 0, 180, "ease-out");
+    await back.finished.catch(() => {});
+    back.cancel();
+    sliding = false;
+  }
+
+  async function slide(delta, fromX = 0) {
+    const i = state.cardIndex + delta;
+    if (sliding) return;
+    if (i < 0 || i >= state.deck.length) {
+      if (fromX) settle(fromX);
+      return;
+    }
+    scene.style.transform = "";
+    if (calm.matches) {
+      step(delta);
+      return;
+    }
+    sliding = true;
+    const off = (scene.offsetWidth + 32) * -delta;
+    const leave = move(fromX, off, 160, "ease-in");
+    await leave.finished.catch(() => {});
+    // The list may have been reopened while the card was leaving.
+    if (!$("cardView").hidden) step(delta);
+    const arrive = move(-off, 0, 220, "cubic-bezier(.2, .8, .3, 1)");
+    leave.cancel();
+    await arrive.finished.catch(() => {});
+    arrive.cancel();
+    sliding = false;
+  }
+
+  // The card follows the finger. The first few pixels decide the direction, so
+  // vertical movement stays free for scrolling a long explanation.
+  let startX = 0, startY = 0, startT = 0, dragX = 0, dragging = null;
+  const endDrag = () => {
+    const wasDragging = dragging;
+    dragging = null;
+    return wasDragging;
+  };
   scene.addEventListener("touchstart", (e) => {
+    skipClick = false;
+    if (sliding || e.touches.length > 1) {
+      dragging = false;
+      return;
+    }
     startX = e.touches[0].clientX;
     startY = e.touches[0].clientY;
+    startT = e.timeStamp;
+    dragX = 0;
+    dragging = null;
+  }, { passive: true });
+  scene.addEventListener("touchmove", (e) => {
+    const dx = e.touches[0].clientX - startX;
+    const dy = e.touches[0].clientY - startY;
+    if (dragging === null) {
+      if (Math.abs(dx) < 8 && Math.abs(dy) < 8) return;
+      dragging = Math.abs(dx) > Math.abs(dy);
+    }
+    if (!dragging) return;
+    const delta = dx < 0 ? 1 : -1;
+    const hasNext = state.deck[state.cardIndex + delta] !== undefined;
+    dragX = hasNext ? dx : dx * 0.25; // resists at the first and last word
+    scene.style.transform = pose(dragX);
   }, { passive: true });
   scene.addEventListener("touchend", (e) => {
-    const dx = e.changedTouches[0].clientX - startX;
-    const dy = e.changedTouches[0].clientY - startY;
-    if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.5) step(dx < 0 ? 1 : -1);
+    if (!endDrag()) return;
+    skipClick = true;
+    const speed = Math.abs(dragX) / Math.max(e.timeStamp - startT, 1);
+    const far = Math.abs(dragX) > Math.min(80, scene.offsetWidth * 0.22);
+    const flick = speed > 0.4 && Math.abs(dragX) > 25;
+    if (far || flick) slide(dragX < 0 ? 1 : -1, dragX);
+    else settle(dragX);
+  }, { passive: true });
+  scene.addEventListener("touchcancel", () => {
+    if (endDrag()) settle(dragX);
   }, { passive: true });
 
   window.addEventListener("hashchange", route);

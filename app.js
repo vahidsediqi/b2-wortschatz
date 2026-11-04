@@ -33,6 +33,7 @@
   function sortKey(w) {
     return w.replace(/^(der\/die|der|die|das)\s+/, "").replace(/^\(sich\)\s+|^sich\s+|^etwas\s+/, "").replace(/^etwas\s+/, "");
   }
+  const spokenText = (w) => w.replace("der/die", "der").replace(/^\(sich\) /, "");
   function slug(w) {
     return w.toLowerCase().replace(/ä/g, "ae").replace(/ö/g, "oe").replace(/ü/g, "ue").replace(/ß/g, "ss").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
   }
@@ -295,9 +296,9 @@
     return german.sort((a, b) => rank(a) - rank(b))[0] || null;
   }
 
-  function speak() {
-    const item = state.deck[state.cardIndex];
-    if (!item) return;
+  // Fallback for a word whose audio file has not been recorded yet.
+  function speakWithDevice(item) {
+    if (!("speechSynthesis" in window)) return;
     const voices = speechSynthesis.getVoices();
     const voice = germanVoice(voices);
     // An empty list means the voices have not loaded yet, so still try with u.lang.
@@ -305,12 +306,29 @@
       $("hint").textContent = "No German voice on this device. Add German in your text-to-speech settings.";
       return;
     }
-    const u = new SpeechSynthesisUtterance(item.w.replace("der/die", "der").replace(/^\(sich\) /, ""));
+    const u = new SpeechSynthesisUtterance(spokenText(item.w));
     if (voice) u.voice = voice;
     u.lang = voice ? voice.lang.replace("_", "-") : "de-DE";
     u.rate = 0.9;
-    speechSynthesis.cancel();
+    // Safari can drop speech that follows cancel() directly, so only cancel when needed.
+    if (speechSynthesis.speaking || speechSynthesis.pending) speechSynthesis.cancel();
     speechSynthesis.speak(u);
+  }
+
+  /* Each word has a recorded file in audio/ (see tools/make-audio.js), because
+     iPhones can stay silent with the browser's speech. */
+  const player = new Audio();
+  function speak() {
+    const item = state.deck[state.cardIndex];
+    if (!item) return;
+    player.src = "audio/" + slug(item.w) + ".m4a";
+    player.play().catch((e) => {
+      if (e.name !== "AbortError") speakWithDevice(item);
+    });
+  }
+  function stopSound() {
+    player.pause();
+    if ("speechSynthesis" in window) speechSynthesis.cancel();
   }
 
   /* Routing: #tab shows the list, #tab/word shows the card */
@@ -344,7 +362,7 @@
       return;
     }
 
-    if ("speechSynthesis" in window) speechSynthesis.cancel();
+    stopSound();
     $("cardView").hidden = true;
     $("listView").hidden = false;
     renderTabs();
@@ -364,12 +382,8 @@
   });
   $("prev").addEventListener("click", () => slide(-1));
   $("next").addEventListener("click", () => slide(1));
-  if ("speechSynthesis" in window) {
-    speechSynthesis.getVoices(); // starts loading the list, which some browsers fill late
-    $("speak").addEventListener("click", speak);
-  } else {
-    $("speak").hidden = true;
-  }
+  $("speak").addEventListener("click", speak);
+  if ("speechSynthesis" in window) speechSynthesis.getVoices(); // some browsers fill the list late
 
   const card = $("card");
   let skipClick = false; // a swipe must not also flip the card

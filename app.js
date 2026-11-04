@@ -14,7 +14,14 @@
   ];
   TABS.forEach((t) => t.items.sort(byWord));
 
-  const state = { tab: "verben", chapter: "alle", query: "", cardIndex: -1, listScroll: 0 };
+  const MARKS = [
+    { id: "gelernt", label: "Gelernt", icon: '<path d="m5 12.500 4.500 4.500L19 7.500"/>' },
+    { id: "schwer", label: "Schwer", icon: '<path d="M12 4 2.800 20h18.400zM12 10v4.500m0 2.700v.1"/>' },
+    { id: "wichtig", label: "Wichtig", icon: '<path d="m12 3.500 2.600 5.400 5.900.8-4.300 4.100 1 5.900-5.200-2.800-5.200 2.800 1-5.900-4.300-4.100 5.900-.8z"/>' },
+  ];
+  const iconSvg = (m, cls) => '<svg class="' + cls + '" viewBox="0 0 24 24" aria-hidden="true">' + m.icon + "</svg>";
+
+  const state = { tab: "verben", filter: "alle", query: "", deck: [], cardIndex: -1, listScroll: 0 };
   const $ = (id) => document.getElementById(id);
   const el = (tag, cls, text) => {
     const n = document.createElement(tag);
@@ -37,10 +44,26 @@
   const artClass = (art) => (art === "der/die" ? "any" : art);
   const tab = () => TABS.find((t) => t.id === state.tab);
 
+  /* Marks are saved in this browser, keyed by word, so a verb shown in two
+     tabs keeps the same marks in both. */
+  const MARKS_KEY = "b2-marks";
+  let marks = {};
+  try { marks = JSON.parse(localStorage.getItem(MARKS_KEY)) || {}; } catch (e) { /* storage is optional */ }
+
+  const hasMark = (item, id) => (marks[slug(item.w)] || []).includes(id);
+  function toggleMark(item, id) {
+    const key = slug(item.w);
+    const current = marks[key] || [];
+    const next = current.includes(id) ? current.filter((m) => m !== id) : [...current, id];
+    if (next.length) marks[key] = next;
+    else delete marks[key];
+    try { localStorage.setItem(MARKS_KEY, JSON.stringify(marks)); } catch (e) { /* storage is optional */ }
+  }
+
   function visibleItems() {
     const q = state.query.trim().toLowerCase();
     return tab().items.filter((i) => {
-      if (state.chapter !== "alle" && i.k !== state.chapter) return false;
+      if (state.filter !== "alle" && !hasMark(i, state.filter)) return false;
       if (!q) return true;
       return i.w.toLowerCase().includes(q) || i.en.toLowerCase().includes(q) || i.fa.includes(q);
     });
@@ -55,7 +78,7 @@
       b.type = "button";
       if (t.id === state.tab) b.setAttribute("aria-current", "page");
       b.addEventListener("click", () => {
-        state.chapter = "alle";
+        state.filter = "alle";
         state.query = "";
         $("search").value = "";
         location.hash = t.id;
@@ -69,13 +92,15 @@
   function renderChips() {
     const box = $("chips");
     box.textContent = "";
-    const chapters = [...new Set(tab().items.map((i) => i.k))].sort((a, b) => a - b);
-    ["alle", ...chapters].forEach((c) => {
-      const b = el("button", "chip", c === "alle" ? "Alle" : "Kapitel " + c);
+    const items = tab().items;
+    [{ id: "alle", label: "Alle" }, ...MARKS].forEach((m) => {
+      const b = el("button", "chip chip-" + m.id);
       b.type = "button";
-      b.setAttribute("aria-pressed", String(state.chapter === c));
+      b.setAttribute("aria-pressed", String(state.filter === m.id));
+      const n = m.id === "alle" ? items.length : items.filter((i) => hasMark(i, m.id)).length;
+      b.append(m.label + " ", el("span", "chip-n", String(n)));
       b.addEventListener("click", () => {
-        state.chapter = c;
+        state.filter = m.id;
         renderChips();
         renderList();
       });
@@ -102,7 +127,14 @@
         word.textContent = item.w;
       }
       if (item.prep) word.append(" ", el("span", "row-prep", item.prep));
-      b.append(word, el("span", "row-k", "K" + item.k));
+      b.appendChild(word);
+      const icons = MARKS.filter((m) => hasMark(item, m.id));
+      if (icons.length) {
+        const box = el("span", "row-marks");
+        box.setAttribute("aria-label", icons.map((m) => m.label).join(", "));
+        box.innerHTML = icons.map((m) => iconSvg(m, "mark-" + m.id)).join("");
+        b.appendChild(box);
+      }
       b.insertAdjacentHTML("beforeend", '<svg class="row-go" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg>');
       b.addEventListener("click", () => {
         state.listScroll = window.scrollY;
@@ -112,8 +144,10 @@
       list.appendChild(li);
     });
     if (!items.length) {
-      list.textContent = "";
-      $("count").textContent = "Kein Wort gefunden. Prüfen Sie die Schreibweise oder wählen Sie „Alle“.";
+      const mark = MARKS.find((m) => m.id === state.filter);
+      $("count").textContent = mark && !state.query.trim()
+        ? "Noch kein Wort als „" + mark.label + "“ markiert. Öffnen Sie ein Wort und tippen Sie unter der Karte auf „" + mark.label + "“."
+        : "Kein Wort gefunden. Prüfen Sie die Schreibweise.";
     }
   }
 
@@ -194,6 +228,13 @@
       ex.appendChild(p);
       back.appendChild(ex);
     }
+
+    if (item.bsp) {
+      const bsp = el("div", "example");
+      bsp.lang = "de";
+      bsp.append(el("span", "label", "Beispiel"), el("p", null, item.bsp));
+      back.appendChild(bsp);
+    }
   }
 
   function setFlipped(on, animate) {
@@ -205,13 +246,31 @@
     card.classList.remove("no-anim");
   }
 
+  function renderMarks(item) {
+    const box = $("marks");
+    box.textContent = "";
+    MARKS.forEach((m) => {
+      const b = el("button", "mark mark-" + m.id);
+      b.type = "button";
+      b.setAttribute("aria-pressed", String(hasMark(item, m.id)));
+      b.innerHTML = iconSvg(m, "mark-icon");
+      b.append(m.label);
+      b.addEventListener("click", () => {
+        toggleMark(item, m.id);
+        b.setAttribute("aria-pressed", String(hasMark(item, m.id)));
+      });
+      box.appendChild(b);
+    });
+  }
+
   function showCard(index) {
-    const items = visibleItems();
+    const items = state.deck;
     const item = items[index];
     state.cardIndex = index;
     setFlipped(false, false);
     renderFront(item);
     renderBack(item);
+    renderMarks(item);
     $("barTitle").textContent = tab().label;
     $("barPos").textContent = index + 1 + " / " + items.length;
     $("prev").disabled = index === 0;
@@ -219,7 +278,7 @@
   }
 
   function step(delta) {
-    const items = visibleItems();
+    const items = state.deck;
     const i = state.cardIndex + delta;
     if (i < 0 || i >= items.length) return;
     history.replaceState(null, "", "#" + state.tab + "/" + slug(items[i].w));
@@ -227,7 +286,7 @@
   }
 
   function speak() {
-    const item = visibleItems()[state.cardIndex];
+    const item = state.deck[state.cardIndex];
     if (!item) return;
     const u = new SpeechSynthesisUtterance(item.w.replace("der/die", "der").replace(/^\(sich\) /, ""));
     u.lang = "de-DE";
@@ -246,12 +305,16 @@
 
     let index = -1;
     if (wordSlug) {
-      index = visibleItems().findIndex((i) => slug(i.w) === wordSlug);
+      // The deck is fixed while a card is open, so removing a mark from a word
+      // in a filtered list does not make the card disappear under your finger.
+      state.deck = visibleItems();
+      index = state.deck.findIndex((i) => slug(i.w) === wordSlug);
       if (index < 0) {
-        state.chapter = "alle";
+        state.filter = "alle";
         state.query = "";
         $("search").value = "";
-        index = visibleItems().findIndex((i) => slug(i.w) === wordSlug);
+        state.deck = visibleItems();
+        index = state.deck.findIndex((i) => slug(i.w) === wordSlug);
       }
     }
 

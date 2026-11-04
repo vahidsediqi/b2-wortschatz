@@ -1,0 +1,212 @@
+/*
+  B2 Wortschatz: all vocabulary lives in this file.
+
+  To add a word, copy a line in the right list and change it.
+    k    chapter number (a new number creates a new chapter filter)
+    w    the German word (nouns include the article)
+    pl   nouns only: plural ending, or "Sg." / "Pl."
+    en   English meaning
+    fa   Farsi meaning
+    ex   Farsi explanation (verbs, adjectives and other words; nouns have none)
+    sep  separable verbs only: the split form, e.g. "stimmt ab"
+    prep verbs with a preposition only, e.g. "über + A."
+
+  A verb with sep shows under Trennbare Verben, a verb with prep shows under
+  Verben + Präposition, a verb with both shows in both tabs, and a verb with
+  neither shows under Verben.
+*/
+window.WORDS = {
+  nomen: [
+    // Kapitel 2
+    { k: 2, w: "die Ausgabe", pl: "-n", en: "expense, spending", fa: "هزینه، مصرف" },
+    { k: 2, w: "der Besitzer", pl: "-", en: "owner (male)", fa: "مالک (مرد)" },
+    { k: 2, w: "die Besitzerin", pl: "-nen", en: "owner (female)", fa: "مالک (زن)" },
+    { k: 2, w: "die Besorgung", pl: "-en", en: "errand, purchase", fa: "خرید، انجام کارهای بیرون" },
+    { k: 2, w: "die Buchführung", pl: "Sg.", en: "bookkeeping", fa: "حساب‌داری، دفترداری" },
+    { k: 2, w: "der Dienstplan", pl: "¨-e", en: "duty roster, work schedule", fa: "جدول کاری، برنامهٔ نوبت کاری" },
+    { k: 2, w: "die Entdeckung", pl: "-en", en: "discovery", fa: "کشف، اکتشاف" },
+    { k: 2, w: "der Familienbetrieb", pl: "-e", en: "family business", fa: "کسب‌وکار خانوادگی" },
+    { k: 2, w: "die Frühschicht", pl: "-en", en: "morning shift", fa: "شیفت صبح" },
+    { k: 2, w: "die Geschäftsidee", pl: "-n", en: "business idea", fa: "ایدهٔ کسب‌وکار" },
+    { k: 2, w: "die Gewerbefläche", pl: "-n", en: "commercial space", fa: "فضای تجاری" },
+    { k: 2, w: "die Gleitzeit", pl: "Sg.", en: "flexible working hours, flexitime", fa: "ساعت کاری منعطف" },
+    { k: 2, w: "der Karton", pl: "-s", en: "cardboard box", fa: "کارتن، جعبهٔ مقوایی" },
+    { k: 2, w: "der Konzern", pl: "-e", en: "large corporation, group of companies", fa: "شرکت بزرگ، گروه شرکت‌ها" },
+    { k: 2, w: "die Lage", pl: "Sg.", en: "situation, position", fa: "موقعیت، وضعیت" },
+    { k: 2, w: "der Lieferant", pl: "-en", en: "supplier (male)", fa: "تأمین‌کننده (مرد)" },
+    { k: 2, w: "die Lieferantin", pl: "-nen", en: "supplier (female)", fa: "تأمین‌کننده (زن)" },
+    { k: 2, w: "die Logistik", pl: "Sg.", en: "logistics", fa: "لجستیک، تدارکات" },
+    { k: 2, w: "die Nachfrage", pl: "Sg.", en: "demand", fa: "تقاضا" },
+    { k: 2, w: "der Pachtvertrag", pl: "¨-e", en: "lease contract", fa: "قرارداد اجاره (ملک یا کسب‌وکار)" },
+    { k: 2, w: "die Pleite", pl: "-n", en: "bankruptcy", fa: "ورشکستگی" },
+    { k: 2, w: "die Redaktion", pl: "-en", en: "editorial team, editorial office", fa: "هیئت تحریریه، دفتر تحریریه" },
+    { k: 2, w: "die Reserve", pl: "-n", en: "reserve", fa: "ذخیره، اندوخته" },
+    { k: 2, w: "die Rücklagen", pl: "Pl.", en: "savings, financial reserves", fa: "پس‌انداز، اندوختهٔ مالی" },
+    { k: 2, w: "die Rücksendung", pl: "-en", en: "return shipment", fa: "پس‌فرستادن کالا، مرجوعی" },
+    { k: 2, w: "der Schichtdienst", pl: "-e", en: "shift work", fa: "کار شیفتی" },
+    { k: 2, w: "die Schuld", pl: "Sg.", en: "fault, blame; debt", fa: "تقصیر؛ بدهی" },
+    { k: 2, w: "das Sortiment", pl: "-e", en: "range of products", fa: "مجموعهٔ کالاها، تنوع کالا" },
+    { k: 2, w: "die Spätschicht", pl: "-en", en: "late shift", fa: "شیفت عصر" },
+    { k: 2, w: "die Tiefkühlkost", pl: "Sg.", en: "frozen food", fa: "غذای منجمد" },
+    { k: 2, w: "die Versicherung", pl: "-en", en: "insurance", fa: "بیمه" },
+    { k: 2, w: "die Verwirklichung", pl: "Sg.", en: "realization, making something real", fa: "تحقق، عملی‌شدن" },
+    { k: 2, w: "der/die Vorgesetzte", pl: "-n", en: "supervisor, boss", fa: "مافوق، رئیس" },
+    { k: 2, w: "der Zuschuss", pl: "¨-e", en: "subsidy, grant", fa: "کمک‌هزینه، یارانه" },
+
+    // Kapitel 3
+    { k: 3, w: "die Absprache", pl: "-n", en: "agreement, arrangement", fa: "توافق، هماهنگی" },
+    { k: 3, w: "die Ausdauer", pl: "Sg.", en: "perseverance, stamina", fa: "پشتکار، استقامت" },
+    { k: 3, w: "die Buchhaltung", pl: "Sg.", en: "accounting", fa: "حساب‌داری" },
+    { k: 3, w: "die Ehrlichkeit", pl: "Sg.", en: "honesty", fa: "صداقت" },
+    { k: 3, w: "die Entscheidung", pl: "-en", en: "decision", fa: "تصمیم" },
+    { k: 3, w: "der Entwurf", pl: "¨-e", en: "draft", fa: "پیش‌نویس، طرح اولیه" },
+    { k: 3, w: "die Flexibilität", pl: "Sg.", en: "flexibility", fa: "انعطاف‌پذیری" },
+    { k: 3, w: "der Flyer", pl: "-", en: "flyer", fa: "برگهٔ تبلیغاتی" },
+    { k: 3, w: "die Innovation", pl: "-en", en: "innovation", fa: "نوآوری" },
+    { k: 3, w: "die Kompetenz", pl: "-en", en: "competence, skill", fa: "شایستگی، توانایی" },
+    { k: 3, w: "die Neugier", pl: "Sg.", en: "curiosity", fa: "کنجکاوی" },
+    { k: 3, w: "das Personal", pl: "Sg.", en: "staff, personnel", fa: "کارکنان" },
+    { k: 3, w: "das Protokoll", pl: "-e", en: "minutes (of a meeting)", fa: "صورت‌جلسه" },
+    { k: 3, w: "die Rundmail", pl: "-s", en: "group email", fa: "ایمیل گروهی" },
+    { k: 3, w: "die Schulung", pl: "-en", en: "training course", fa: "دورهٔ آموزشی" },
+    { k: 3, w: "die Servicekraft", pl: "¨-e", en: "service employee", fa: "کارمند خدمات" },
+    { k: 3, w: "die Sitzung", pl: "-en", en: "meeting", fa: "جلسه، نشست" },
+    { k: 3, w: "die Statistik", pl: "-en", en: "statistics", fa: "آمار" },
+    { k: 3, w: "der Tagesordnungspunkt", pl: "-e (der TOP, -s)", en: "agenda item", fa: "موضوع دستور جلسه" },
+    { k: 3, w: "die Tat", pl: "-en", en: "action, deed", fa: "عمل، اقدام" },
+    { k: 3, w: "die Teamarbeit", pl: "Sg.", en: "teamwork", fa: "کار گروهی" },
+    { k: 3, w: "die Treue", pl: "Sg.", en: "loyalty", fa: "وفاداری" },
+    { k: 3, w: "der Verbesserungsvorschlag", pl: "¨-e", en: "suggestion for improvement", fa: "پیشنهاد برای بهبود" },
+    { k: 3, w: "die Verhandlung", pl: "-en", en: "negotiation", fa: "مذاکره" },
+    { k: 3, w: "der Versand", pl: "Sg.", en: "shipping, dispatch", fa: "ارسال کالا" },
+    { k: 3, w: "die Visitenkarte", pl: "-n", en: "business card", fa: "کارت ویزیت" },
+    { k: 3, w: "die Vorgabe", pl: "-n", en: "guideline, requirement", fa: "دستورالعمل، ضابطه" },
+    { k: 3, w: "das Wachstum", pl: "Sg.", en: "growth", fa: "رشد" },
+    { k: 3, w: "der Zufall", pl: "¨-e", en: "coincidence, chance", fa: "تصادف، اتفاق" },
+
+    // Kapitel 4
+    { k: 4, w: "die Anerkennung", pl: "Sg.", en: "recognition, appreciation", fa: "قدردانی، به‌رسمیت‌شناختن" },
+    { k: 4, w: "die Anforderung", pl: "-en", en: "requirement", fa: "نیازمندی، شرط لازم" },
+    { k: 4, w: "die Anzahlung", pl: "-en", en: "down payment, deposit", fa: "پیش‌پرداخت" },
+    { k: 4, w: "die Arbeitsbedingungen", pl: "Pl.", en: "working conditions", fa: "شرایط کاری" },
+    { k: 4, w: "die Aufmerksamkeit", pl: "Sg.", en: "attention", fa: "توجه" },
+    { k: 4, w: "die Aufstiegsmöglichkeit", pl: "-en", en: "opportunity for promotion", fa: "فرصت پیشرفت شغلی" },
+    { k: 4, w: "die Begeisterung", pl: "Sg.", en: "enthusiasm", fa: "شور و شوق" },
+    { k: 4, w: "die Bewerbungsunterlagen", pl: "Pl.", en: "application documents", fa: "مدارک درخواست کار" },
+    { k: 4, w: "die Bezahlung", pl: "Sg.", en: "pay, payment", fa: "پرداخت، دستمزد" },
+    { k: 4, w: "das Erlebnis", pl: "-se", en: "experience, memorable event", fa: "تجربه، رویداد به‌یادماندنی" },
+    { k: 4, w: "der Frühbucherrabatt", pl: "-e", en: "early booking discount", fa: "تخفیف رزرو زودهنگام" },
+    { k: 4, w: "die Gebühr", pl: "-en", en: "fee", fa: "هزینه، کارمزد" },
+    { k: 4, w: "die Geschäftsleitung", pl: "-en", en: "company management", fa: "مدیریت شرکت" },
+    { k: 4, w: "die Gewerkschaft", pl: "-en", en: "trade union", fa: "اتحادیهٔ کارگری" },
+    { k: 4, w: "das Grundgehalt", pl: "¨-er", en: "base salary", fa: "حقوق پایه" },
+    { k: 4, w: "die Halbpension", pl: "Sg.", en: "half board", fa: "نیم‌پانسیون (صبحانه و شام)" },
+    { k: 4, w: "die Koordination", pl: "Sg.", en: "coordination", fa: "هماهنگی" },
+    { k: 4, w: "die Kreativität", pl: "Sg.", en: "creativity", fa: "خلاقیت" },
+    { k: 4, w: "die Kündigungsfrist", pl: "-en", en: "notice period", fa: "مهلت اعلام فسخ قرارداد" },
+    { k: 4, w: "die Pauschalreise", pl: "-n", en: "package holiday", fa: "تور کامل مسافرتی" },
+    { k: 4, w: "die Reiserücktrittsversicherung", pl: "-en", en: "trip cancellation insurance", fa: "بیمهٔ لغو سفر" },
+    { k: 4, w: "die Rückkehr", pl: "Sg.", en: "return", fa: "بازگشت" },
+    { k: 4, w: "die Teamfähigkeit", pl: "Sg.", en: "ability to work in a team", fa: "توانایی کار گروهی" },
+    { k: 4, w: "die Umbuchung", pl: "-en", en: "rebooking", fa: "تغییر رزرو" },
+    { k: 4, w: "die Vollpension", pl: "Sg.", en: "full board", fa: "پانسیون کامل (هر سه وعده)" },
+  ],
+
+  verben: [
+    // Kapitel 2
+    { k: 2, w: "betreiben", en: "to run, to operate (a business)", fa: "اداره کردن، راه انداختن کار", ex: "وقتی کسی یک مغازه، رستوران یا شرکت را می‌چرخاند و کارهایش را پیش می‌برد." },
+    { k: 2, w: "einhalten", sep: "hält ein", en: "to keep to, to comply with", fa: "رعایت کردن", ex: "به یک قانون، قرار یا مهلت پایبند ماندن؛ مثلاً رعایت کردن مقررات یا موعد تحویل." },
+    { k: 2, w: "(sich) etwas einteilen", sep: "teilt ein", en: "to divide up, to budget (time or money)", fa: "تقسیم کردن، برنامه‌ریزی کردن", ex: "پول یا وقت خود را طوری بخش‌بندی کردن که تا آخر کافی باشد." },
+    { k: 2, w: "eröffnen", en: "to open (a shop, an account)", fa: "افتتاح کردن، باز کردن", ex: "برای اولین بار شروع کردن یک مغازه، شرکت یا حساب بانکی." },
+    { k: 2, w: "hetzen", en: "to rush", fa: "عجله کردن، با شتاب دویدن", ex: "با استرس و خیلی تند از یک کار به کار دیگر رفتن، چون وقت کم است." },
+    { k: 2, w: "klappen", en: "to work out (informal)", fa: "درست شدن، جور شدن", ex: "وقتی کاری همان‌طور که می‌خواستیم پیش می‌رود و موفق می‌شود. در گفتار روزمره زیاد به کار می‌رود." },
+    { k: 2, w: "liefern", en: "to deliver, to supply", fa: "تحویل دادن، رساندن", ex: "رساندن کالا یا سفارش به مشتری یا به یک فروشگاه." },
+    { k: 2, w: "pleitegehen", sep: "geht pleite", en: "to go bankrupt", fa: "ورشکست شدن", ex: "وقتی یک شرکت یا شخص دیگر پولی ندارد و نمی‌تواند بدهی‌هایش را بپردازد." },
+    { k: 2, w: "profitieren", prep: "von + D.", en: "to benefit from", fa: "سود بردن از", ex: "از چیزی فایده یا نفع به دست آوردن. بعد از آن von و حالت داتیو می‌آید." },
+    { k: 2, w: "übernehmen", en: "to take over, to take on", fa: "به عهده گرفتن، تحویل گرفتن", ex: "مسئولیت، کار یا شیفت کسی را قبول کردن. این فعل جدا نمی‌شود: er übernimmt." },
+
+    // Kapitel 3
+    { k: 3, w: "abstimmen", sep: "stimmt ab", prep: "über + A.", en: "to vote on", fa: "رأی‌گیری کردن دربارهٔ", ex: "گروهی از افراد با رأی دادن دربارهٔ یک موضوع تصمیم می‌گیرند." },
+    { k: 3, w: "sich aufteilen", sep: "teilt sich auf", prep: "in + A.", en: "to split up into", fa: "تقسیم شدن به", ex: "یک گروه بزرگ به چند گروه کوچک‌تر جدا می‌شود. کتاب in + D. نوشته، اما بعد از aufteilen معمولاً آکوزاتیو می‌آید: in Arbeitsgruppen." },
+    { k: 3, w: "ignorieren", en: "to ignore", fa: "نادیده گرفتن", ex: "عمداً به کسی یا چیزی توجه نکردن، طوری که انگار وجود ندارد." },
+    { k: 3, w: "improvisieren", en: "to improvise", fa: "بدون آمادگی انجام دادن", ex: "بدون برنامهٔ قبلی، همان لحظه راه‌حل پیدا کردن و کار را پیش بردن." },
+    { k: 3, w: "umsetzen", sep: "setzt um", en: "to put into practice", fa: "عملی کردن، اجرا کردن", ex: "یک ایده یا برنامه را به کار واقعی تبدیل کردن. عبارت رایج: etwas in die Tat umsetzen." },
+    { k: 3, w: "verhindern", en: "to prevent", fa: "جلوگیری کردن", ex: "کاری کردن که یک اتفاق بد یا ناخواسته رخ ندهد." },
+    { k: 3, w: "etwas vertuschen", en: "to cover something up", fa: "لاپوشانی کردن", ex: "یک اشتباه یا مشکل را پنهان کردن تا دیگران از آن خبردار نشوند." },
+    { k: 3, w: "zukommen", sep: "kommt zu", prep: "auf + A.", en: "to get back to someone; to approach", fa: "مراجعه کردن به، سراغ کسی رفتن", ex: "با کسی تماس گرفتن یا نزد او رفتن. جملهٔ رایج: Ich komme auf Sie zu یعنی من با شما تماس می‌گیرم." },
+
+    // Kapitel 4
+    { k: 4, w: "abschließen", sep: "schließt ab", en: "to conclude (a contract); to finish", fa: "بستن قرارداد، به پایان رساندن", ex: "امضا و نهایی کردن یک قرارداد یا بیمه؛ همچنین تمام کردن تحصیل یا یک کار." },
+    { k: 4, w: "aufkommen", sep: "kommt auf", prep: "für + A.", en: "to pay for, to cover the cost of", fa: "هزینهٔ چیزی را پرداختن", ex: "مسئولیت پرداخت هزینه یا خسارت چیزی را بر عهده گرفتن." },
+    { k: 4, w: "aufwachsen", sep: "wächst auf", prep: "in + D.", en: "to grow up in", fa: "بزرگ شدن در", ex: "دوران کودکی را در یک جا گذراندن." },
+    { k: 4, w: "beitreten", sep: "tritt bei", en: "to join (a union, a club)", fa: "عضو شدن", ex: "رسماً عضو یک اتحادیه، باشگاه یا سازمان شدن. بعد از آن داتیو می‌آید: einer Gewerkschaft beitreten." },
+    { k: 4, w: "beraten", en: "to advise", fa: "مشاوره دادن", ex: "به کسی راهنمایی تخصصی دادن تا بهتر تصمیم بگیرد." },
+    { k: 4, w: "betreuen", en: "to look after", fa: "مراقبت کردن، سرپرستی کردن", ex: "از کودکان، سالمندان یا مشتریان مراقبت کردن و به کارهایشان رسیدگی کردن." },
+    { k: 4, w: "sich erholen", en: "to rest, to recover", fa: "استراحت کردن، بهبود یافتن", ex: "بعد از خستگی یا بیماری، دوباره انرژی و سلامتی به دست آوردن." },
+    { k: 4, w: "sich spezialisieren", prep: "auf + A.", en: "to specialize in", fa: "تخصص پیدا کردن در", ex: "تمرکز کردن روی یک حوزهٔ مشخص و ماهر شدن در آن." },
+    { k: 4, w: "stornieren", en: "to cancel (a booking)", fa: "لغو کردن", ex: "باطل کردن رزرو، سفارش یا پرداختی که قبلاً انجام شده است." },
+    { k: 4, w: "umgehen", sep: "geht um", prep: "mit + D.", en: "to deal with, to handle", fa: "برخورد کردن با، کنار آمدن با", ex: "رفتار کردن با آدم‌ها یا مدیریت کردن یک موقعیت؛ مثلاً gut mit Menschen umgehen." },
+    { k: 4, w: "zaubern", en: "to do magic; to conjure up", fa: "جادو کردن", ex: "شعبده‌بازی کردن؛ در گفتار یعنی چیزی را به‌سرعت و با مهارت پدید آوردن، مثلاً یک غذای خوب." },
+  ],
+
+  adjektive: [
+    // Kapitel 2
+    { k: 2, w: "finanziell", en: "financial", fa: "مالی", ex: "هر چیزی که به پول و وضعیت مالی مربوط باشد." },
+    { k: 2, w: "freiberuflich", en: "freelance, self-employed", fa: "خوداشتغال، آزادکار", ex: "کسی که کارمند نیست و برای خودش کار می‌کند، مثل مترجم یا طراح مستقل." },
+    { k: 2, w: "gewerblich", en: "commercial", fa: "تجاری", ex: "مربوط به کسب‌وکار و فعالیت برای درآمد، نه استفادهٔ شخصی." },
+    { k: 2, w: "günstig", en: "inexpensive; favorable", fa: "ارزان، مناسب", ex: "چیزی با قیمت خوب؛ همچنین شرایط یا زمانی که به نفع ماست." },
+    { k: 2, w: "niedergeschlagen", en: "dejected, downcast", fa: "افسرده، دل‌مرده", ex: "کسی که بعد از یک اتفاق بد غمگین و بی‌انگیزه است." },
+    { k: 2, w: "wirtschaftlich", en: "economic; economical", fa: "اقتصادی", ex: "مربوط به اقتصاد؛ همچنین چیزی که صرفه دارد و پول را هدر نمی‌دهد." },
+    { k: 2, w: "zufällig", en: "by chance, accidental", fa: "تصادفی", ex: "چیزی که بدون برنامه و ناگهانی پیش می‌آید." },
+    { k: 2, w: "zuständig", en: "responsible, in charge", fa: "مسئول", ex: "کسی که یک کار مشخص وظیفهٔ اوست. با für می‌آید: Ich bin für den Versand zuständig." },
+
+    // Kapitel 3
+    { k: 3, w: "ausschließlich", en: "exclusively, only", fa: "منحصراً، فقط", ex: "فقط همین و نه چیز دیگری." },
+    { k: 3, w: "chaotisch", en: "chaotic", fa: "بی‌نظم، آشفته", ex: "وضعیت یا آدمی که نظم و برنامه ندارد." },
+    { k: 3, w: "detailliert", en: "detailed", fa: "با جزئیات", ex: "چیزی که همهٔ جزئیاتش دقیق گفته یا نوشته شده است." },
+    { k: 3, w: "formal", en: "formal", fa: "رسمی، از نظر شکلی", ex: "مطابق قواعد و شکل رسمی، نه خودمانی." },
+    { k: 3, w: "gefühlsbetont", en: "emotional, led by feelings", fa: "احساسی", ex: "کسی که بیشتر با احساس تصمیم می‌گیرد تا با منطق." },
+    { k: 3, w: "gelassen", en: "calm, composed", fa: "آرام، خونسرد", ex: "کسی که در شرایط سخت هم آرامش خود را از دست نمی‌دهد." },
+    { k: 3, w: "innovativ", en: "innovative", fa: "نوآورانه", ex: "چیزی یا کسی که ایده‌های تازه و جدید می‌آورد." },
+    { k: 3, w: "komplex", en: "complex", fa: "پیچیده", ex: "چیزی که بخش‌های زیادی دارد و فهمیدنش ساده نیست." },
+    { k: 3, w: "konstruktiv", en: "constructive", fa: "سازنده", ex: "نقد یا پیشنهادی که به بهتر شدن کار کمک می‌کند." },
+    { k: 3, w: "motivierend", en: "motivating", fa: "انگیزه‌بخش", ex: "چیزی که به آدم انگیزه و انرژی می‌دهد." },
+    { k: 3, w: "neutral", en: "neutral", fa: "بی‌طرف، خنثی", ex: "کسی که طرف هیچ‌کس را نمی‌گیرد." },
+    { k: 3, w: "pessimistisch", en: "pessimistic", fa: "بدبین", ex: "کسی که همیشه منتظر نتیجهٔ بد است." },
+    { k: 3, w: "präzise", en: "precise", fa: "دقیق", ex: "کاملاً درست و روشن، بدون ابهام." },
+    { k: 3, w: "provozierend", en: "provocative", fa: "تحریک‌کننده", ex: "حرف یا رفتاری که عمداً دیگران را عصبانی می‌کند یا به واکنش وامی‌دارد." },
+    { k: 3, w: "sachlich", en: "objective, matter-of-fact", fa: "واقع‌بینانه، منطقی", ex: "تکیه بر واقعیت‌ها و دلیل، نه احساسات." },
+    { k: 3, w: "souverän", en: "confident, in control", fa: "مسلط، با اعتماد به نفس", ex: "کسی که موقعیت را با آرامش و مهارت کنترل می‌کند." },
+    { k: 3, w: "strukturiert", en: "structured", fa: "منظم، ساختارمند", ex: "کار یا فکری که ترتیب و نظم روشنی دارد." },
+    { k: 3, w: "systematisch", en: "systematic", fa: "نظام‌مند، با برنامه", ex: "انجام کار قدم‌به‌قدم و طبق یک روش مشخص." },
+    { k: 3, w: "überfordert", en: "overwhelmed, out of one's depth", fa: "ناتوان از انجام کار", ex: "کسی که کار از توان یا دانش او بیشتر است و از پسش برنمی‌آید." },
+    { k: 3, w: "überlastet", en: "overloaded", fa: "زیر فشار کار زیاد", ex: "کسی که کار خیلی زیادی دارد؛ مقدار کار مشکل است، نه سختی آن." },
+    { k: 3, w: "unvoreingenommen", en: "unbiased, open-minded", fa: "بدون پیش‌داوری", ex: "کسی که بدون نظر قبلی و با ذهن باز قضاوت می‌کند." },
+    { k: 3, w: "voreilig", en: "hasty, premature", fa: "عجولانه", ex: "تصمیم یا نتیجه‌ای که خیلی زود و بدون فکر کافی گرفته شده است." },
+
+    // Kapitel 4
+    { k: 4, w: "abwechslungsreich", en: "varied", fa: "متنوع", ex: "کاری یا برنامه‌ای که هر بار چیز تازه‌ای دارد و یکنواخت نیست." },
+    { k: 4, w: "anspruchsvoll", en: "demanding, challenging", fa: "پرچالش، سخت‌پسند", ex: "کاری که مهارت زیادی می‌خواهد؛ یا کسی که انتظار کیفیت بالا دارد." },
+    { k: 4, w: "ausgebucht", en: "fully booked", fa: "تکمیل‌ظرفیت", ex: "هتل، سفر یا برنامه‌ای که دیگر جای خالی ندارد." },
+    { k: 4, w: "begeistert", en: "enthusiastic, delighted", fa: "مشتاق، بسیار خوشحال", ex: "کسی که از چیزی خیلی خوشش آمده است. با von می‌آید: begeistert von der Reise." },
+    { k: 4, w: "hoffnungslos", en: "hopeless", fa: "ناامیدکننده، بی‌امید", ex: "وضعیتی که دیگر امیدی به بهتر شدن آن نیست." },
+    { k: 4, w: "körperlich", en: "physical", fa: "جسمی، بدنی", ex: "مربوط به بدن؛ مثلاً کار بدنی." },
+    { k: 4, w: "psychisch", en: "psychological, mental", fa: "روانی", ex: "مربوط به روح و روان و حال درونی انسان." },
+    { k: 4, w: "reibungslos", en: "smooth, without problems", fa: "بدون مشکل، روان", ex: "کاری که بدون دردسر و مانع پیش می‌رود." },
+    { k: 4, w: "selbstverständlich", en: "of course, self-evident", fa: "البته، بدیهی", ex: "چیزی که روشن است و نیازی به توضیح یا پرسیدن ندارد." },
+    { k: 4, w: "sensationell", en: "sensational", fa: "فوق‌العاده، خیره‌کننده", ex: "چیزی که خیلی عالی یا شگفت‌آور است و توجه همه را جلب می‌کند." },
+    { k: 4, w: "therapeutisch", en: "therapeutic", fa: "درمانی", ex: "مربوط به درمان، یا چیزی که به بهبود کمک می‌کند." },
+    { k: 4, w: "versteckt", en: "hidden", fa: "پنهان", ex: "چیزی که دیده نمی‌شود؛ مثلاً هزینه‌های پنهان در یک قرارداد." },
+    { k: 4, w: "verzweifelt", en: "desperate", fa: "درمانده، ناامید", ex: "کسی که راهی پیدا نمی‌کند و امیدش را از دست داده است." },
+    { k: 4, w: "vollständig", en: "complete", fa: "کامل", ex: "چیزی که همهٔ بخش‌هایش موجود است و کم و کسری ندارد." },
+  ],
+
+  andere: [
+    { k: 2, w: "ausnahmsweise", en: "as an exception", fa: "به‌طور استثنا", ex: "فقط این یک بار و برخلاف حالت معمول." },
+    { k: 2, w: "irgendjemand", en: "anyone, someone", fa: "یک کسی، هر کسی", ex: "شخصی که مشخص نیست چه کسی است." },
+    { k: 2, w: "miteinander", en: "with each other, together", fa: "با یکدیگر", ex: "دو یا چند نفر با هم؛ مثلاً miteinander sprechen." },
+    { k: 2, w: "unbedingt", en: "absolutely, definitely", fa: "حتماً، به هر قیمتی", ex: "برای تأکید: این کار خیلی مهم است و باید انجام شود." },
+    { k: 4, w: "alles inklusive", en: "all inclusive", fa: "همه چیز شامل قیمت", ex: "غذا، نوشیدنی و خدمات در قیمت حساب شده و هزینهٔ اضافه‌ای ندارد." },
+    { k: 4, w: "unterwegs sein", en: "to be on the way, to be out and about", fa: "در راه بودن", ex: "در سفر یا بیرون از خانه بودن و هنوز به مقصد نرسیدن." },
+  ],
+};

@@ -285,11 +285,29 @@
     showCard(i);
   }
 
+  /* Setting only u.lang is not enough: many browsers then read with the
+     device's default voice, so German comes out with an English accent.
+     The voice has to be chosen by hand. Android reports "de_DE", hence the replace. */
+  function germanVoice(voices) {
+    const german = voices.filter((v) => /^de\b/i.test(v.lang.replace("_", "-")));
+    const rank = (v) =>
+      (/^de[-_]DE/i.test(v.lang) ? 0 : 2) + (/anna|petra|markus|viktor|katja|hedda|google/i.test(v.name) ? 0 : 1);
+    return german.sort((a, b) => rank(a) - rank(b))[0] || null;
+  }
+
   function speak() {
     const item = state.deck[state.cardIndex];
     if (!item) return;
+    const voices = speechSynthesis.getVoices();
+    const voice = germanVoice(voices);
+    // An empty list means the voices have not loaded yet, so still try with u.lang.
+    if (voices.length && !voice) {
+      $("hint").textContent = "No German voice on this device. Add German in your text-to-speech settings.";
+      return;
+    }
     const u = new SpeechSynthesisUtterance(item.w.replace("der/die", "der").replace(/^\(sich\) /, ""));
-    u.lang = "de-DE";
+    if (voice) u.voice = voice;
+    u.lang = voice ? voice.lang.replace("_", "-") : "de-DE";
     u.rate = 0.9;
     speechSynthesis.cancel();
     speechSynthesis.speak(u);
@@ -346,8 +364,12 @@
   });
   $("prev").addEventListener("click", () => step(-1));
   $("next").addEventListener("click", () => step(1));
-  if ("speechSynthesis" in window) $("speak").addEventListener("click", speak);
-  else $("speak").hidden = true;
+  if ("speechSynthesis" in window) {
+    speechSynthesis.getVoices(); // starts loading the list, which some browsers fill late
+    $("speak").addEventListener("click", speak);
+  } else {
+    $("speak").hidden = true;
+  }
 
   const card = $("card");
   const flip = () => setFlipped(!card.classList.contains("flipped"), true);

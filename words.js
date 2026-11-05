@@ -2,7 +2,7 @@
   B2 Wortschatz: all vocabulary lives in this file.
 
   To add a word, copy a line in the right list and change it.
-    k    chapter number
+    k    chapter number (0 = words from outside the book)
     w    the German word (nouns include the article)
     pl   nouns only: plural ending, or "Sg." / "Pl."
     en   English meaning
@@ -111,6 +111,39 @@ window.WORDS = {
     { k: 4, w: "die Teamfähigkeit", pl: "Sg.", bsp: "In der Stellenanzeige wird Teamfähigkeit verlangt.", en: "ability to work in a team", fa: "توانایی کار گروهی" },
     { k: 4, w: "die Umbuchung", pl: "-en", bsp: "Eine Umbuchung des Flugs ist bis zwei Tage vor Abflug möglich.", en: "rebooking", fa: "تغییر رزرو" },
     { k: 4, w: "die Vollpension", pl: "Sg.", bsp: "Im Hotel ist Vollpension im Preis enthalten.", en: "full board", fa: "پانسیون کامل (هر سه وعده)" },
+
+    // Kündigungsrecht und Verstöße am Arbeitsplatz
+    { k: 0, w: "die ausländerfeindliche Äußerung", pl: "-en", bsp: "Wegen ausländerfeindlicher Äußerungen bekam er eine Abmahnung.", en: "xenophobic remark", fa: "اظهارات نژادپرستانه / ضد خارجی" },
+    { k: 0, w: "die Beleidigung von Kollegen, Vorgesetzten, Kunden", bsp: "Die Beleidigung von Kollegen, Vorgesetzten, Kunden kann zur Kündigung führen.", en: "insulting colleagues, superiors, customers", fa: "توهین به همکاران، مافوق‌ها یا مشتریان" },
+    { k: 0, w: "der Diebstahl am Arbeitsplatz", bsp: "Diebstahl am Arbeitsplatz ist ein Grund für eine fristlose Kündigung.", en: "theft at the workplace", fa: "دزدی در محل کار" },
+    { k: 0, w: "der Betrug bei der Arbeitszeit", bsp: "Wer falsche Stunden aufschreibt, begeht Betrug bei der Arbeitszeit.", en: "working time fraud", fa: "تقلب در ثبت ساعات کاری" },
+    { k: 0, w: "die Internetnutzung für private Zwecke", bsp: "In vielen Firmen ist die Internetnutzung für private Zwecke verboten.", en: "using the internet for private purposes", fa: "استفاده از اینترنت برای مقاصد شخصی" },
+    { k: 0, w: "das Mobbing", pl: "Sg.", bsp: "Sie hat die Stelle wegen Mobbing gewechselt.", en: "workplace bullying", fa: "آزار و اذیت روانی در محل کار (موبینگ)" },
+    { k: 0, w: "die Störung des Betriebsfriedens", bsp: "Ständiger Streit im Team ist eine Störung des Betriebsfriedens.", en: "disturbing the peace at work", fa: "برهم زدن آرامش و نظم محیط کار" },
+    { k: 0, w: "die Schlägerei am Arbeitsplatz", bsp: "Nach der Schlägerei am Arbeitsplatz mussten beide Männer gehen.", en: "fight at the workplace", fa: "دعوا و درگیری فیزیکی در محل کار" },
+    { k: 0, w: "das unentschuldigte Fehlen", pl: "Sg.", bsp: "Unentschuldigtes Fehlen kann eine Abmahnung zur Folge haben.", en: "unexcused absence", fa: "غیبت غیرمجاز / بدون عذر موجه" },
+    { k: 0, w: "die unerlaubte Nebentätigkeit", pl: "-en", bsp: "Eine unerlaubte Nebentätigkeit kann den Job kosten.", en: "unauthorised second job", fa: "کار جانبی / شغل دوم بدون مجوز" },
+    { k: 0, w: "die Unpünktlichkeit", pl: "Sg.", bsp: "Sein Chef hat ihn wegen Unpünktlichkeit ermahnt.", en: "lack of punctuality", fa: "آنتیک نبودن / تاخیر و بی‌نظمی در وقت" },
+    { k: 0, w: "die verspätete Krankmeldung", pl: "-en", bsp: "Eine verspätete Krankmeldung ist ein Verstoß gegen den Arbeitsvertrag.", en: "late sick note", fa: "تاخیر در اعلام بیماری (گواهی استعلاجی)" },
+    { k: 0, w: "der Verstoß gegen das Alkoholverbot", bsp: "Das Bier in der Pause war ein Verstoß gegen das Alkoholverbot.", en: "breach of the alcohol ban", fa: "نقض قانون منع مصرف الکل" },
+    { k: 0, w: "der Verstoß gegen das Rauchverbot", bsp: "Rauchen im Lager ist ein Verstoß gegen das Rauchverbot.", en: "breach of the smoking ban", fa: "نقض قانون منع سیگار کشیدن" },
+    { k: 0, w: "die Weitergabe von Betriebsgeheimnissen", bsp: "Die Weitergabe von Betriebsgeheimnissen ist streng verboten.", en: "passing on trade secrets", fa: "افشای اسرار تجاری و کاری شرکت" },
+    { k: 0, w: "die sexuelle Belästigung", pl: "-en", bsp: "Sexuelle Belästigung sollte man sofort melden.", en: "sexual harassment", fa: "آزار و اذیت جنسی" },
+    { k: 0, w: "das Kündigungsrecht", pl: "Sg.", bsp: "Im Kurs sprechen wir heute über das Kündigungsrecht.", en: "dismissal law", fa: "حقوق فسخ قرارداد / قوانین اخراج" },
+    { k: 0, w: "die Abmahnung", pl: "-en", bsp: "Nach der zweiten Abmahnung kam die Kündigung.", en: "formal warning", fa: "اخطار رسمی / اخطار کتبی یا شفاهی" },
+    { k: 0, w: "das Arbeitsverhältnis", pl: "-se", bsp: "Das Arbeitsverhältnis endet am 31. März.", en: "employment relationship", fa: "رابطه کاری / قرارداد کاری" },
+    { k: 0, w: "die ordentliche Kündigung", pl: "-en", bsp: "Bei einer ordentlichen Kündigung gilt die Kündigungsfrist.", en: "regular dismissal with notice", fa: "اخراج یا فسخ عادی قرارداد" },
+    { k: 0, w: "die Einhaltung", pl: "Sg.", bsp: "Die Einhaltung der Frist ist sehr wichtig.", en: "compliance, keeping to", fa: "رعایت کردن / پایبند بودن (به مهلت)" },
+    { k: 0, w: "der Kündigungsschutz", pl: "Sg.", bsp: "In kleinen Firmen gilt der Kündigungsschutz oft nicht.", en: "protection against dismissal", fa: "قانون حمایت در برابر اخراج" },
+    { k: 0, w: "der Mutterschutz", pl: "Sg.", bsp: "Während des Mutterschutzes darf sie nicht arbeiten.", en: "maternity protection", fa: "مرخصی و حمایت‌های دوران بارداری و زایمان" },
+    { k: 0, w: "der Betriebsrat", pl: "¨-e", bsp: "Vor jeder Kündigung muss der Betriebsrat angehört werden.", en: "works council", fa: "شورای کارگری / شورای کارکنان شرکت" },
+    { k: 0, w: "die außerordentliche (fristlose) Kündigung", pl: "-en", bsp: "Nach dem Diebstahl erhielt er eine außerordentliche Kündigung.", en: "dismissal without notice", fa: "اخراج فوق‌العاده (فوری و بدون مهلت)" },
+    { k: 0, w: "die Beendigung", pl: "-en", bsp: "Nach der Beendigung des Vertrags bekommen Sie ein Zeugnis.", en: "ending, termination", fa: "پایان دادن / خاتمه" },
+    { k: 0, w: "die Überstunden", pl: "Pl.", bsp: "Diesen Monat habe ich viele Überstunden gemacht.", en: "overtime", fa: "اضافه کاری" },
+    { k: 0, w: "der Resturlaub", pl: "Sg.", bsp: "Meinen Resturlaub nehme ich vor dem letzten Arbeitstag.", en: "remaining holiday", fa: "باقی‌مانده مرخصی" },
+    { k: 0, w: "das Arbeitszeugnis", pl: "-se", bsp: "Beim Abschied bekommt man ein Arbeitszeugnis.", en: "employment reference", fa: "گواهی‌نامه کاری / رضایت‌نامه کاری" },
+    { k: 0, w: "der Rechtsanwalt", pl: "¨-e", bsp: "Nach der Kündigung ging sie zu einem Rechtsanwalt.", en: "lawyer", fa: "وکیل مدافع" },
+    { k: 0, w: "die Arbeitsagentur", pl: "-en", bsp: "Nach der Kündigung muss man zur Arbeitsagentur gehen.", en: "employment agency", fa: "اداره کار" },
   ],
 
   verben: [
@@ -148,6 +181,13 @@ window.WORDS = {
     { k: 4, w: "stornieren", bsp: "Ich musste meine Reise leider stornieren.", en: "to cancel (a booking)", fa: "لغو کردن", ex: "باطل کردن رزرو، سفارش یا پرداختی که قبلاً انجام شده است." },
     { k: 4, w: "umgehen", sep: "geht um", prep: "mit + D.", bsp: "Sie kann gut mit schwierigen Kunden umgehen.", en: "to deal with, to handle", fa: "برخورد کردن با، کنار آمدن با", ex: "رفتار کردن با آدم‌ها یا مدیریت کردن یک موقعیت؛ مثلاً gut mit Menschen umgehen." },
     { k: 4, w: "zaubern", bsp: "Für die Kinder zaubert er Münzen aus dem Hut.", en: "to do magic; to conjure up", fa: "جادو کردن", ex: "شعبده‌بازی کردن؛ در گفتار یعنی چیزی را به‌سرعت و با مهارت پدید آوردن، مثلاً یک غذای خوب." },
+
+    // Kündigungsrecht
+    { k: 0, w: "akzeptieren", bsp: "Der Mitarbeiter hat die Kündigung nicht akzeptiert.", en: "to accept", fa: "پذیرفتن / قبول کردن", ex: "چیزی را درست یا قابل قبول دانستن و با آن مخالفت نکردن." },
+    { k: 0, w: "sich arbeitssuchend melden", bsp: "Nach der Kündigung müssen Sie sich sofort arbeitssuchend melden.", en: "to register as a job seeker", fa: "ثبت‌نام به عنوان جویای کار", ex: "بعد از اخراج یا پایان قرارداد، به اداره کار خبر دادن که دنبال کار هستید. این کار باید زود انجام شود." },
+    { k: 0, w: "vorausgehen", sep: "geht voraus", bsp: "Der Kündigung geht meistens eine Abmahnung voraus.", en: "to precede", fa: "مقدم بودن / قبل از چیزی اتفاق افتادن", ex: "زودتر از چیز دیگری اتفاق افتادن. آن چیز دیگر با حالت داتیو می‌آید و فعل با sein صرف می‌شود." },
+    { k: 0, w: "aufheben", sep: "hebt auf", bsp: "Heben Sie den Briefumschlag gut auf.", en: "to keep, to hold on to", fa: "نگه‌داشتن / حفظ کردن (پاکت نامه)", ex: "چیزی را برای بعد نگه داشتن و دور نینداختن؛ مثلاً پاکت نامه اخراج را، چون تاریخ رسیدن را نشان می‌دهد." },
+    { k: 0, w: "Widerspruch einlegen", sep: "legt Widerspruch ein", bsp: "Gegen den Bescheid können Sie Widerspruch einlegen.", en: "to file an objection", fa: "اعتراض کردن / ثبت اعتراض قانونی", ex: "به‌طور رسمی اعلام کردن که با یک تصمیم موافق نیستید و می‌خواهید دوباره بررسی شود." },
   ],
 
   adjektive: [
@@ -200,6 +240,10 @@ window.WORDS = {
     { k: 4, w: "versteckt", bsp: "Achten Sie im Vertrag auf versteckte Kosten.", en: "hidden", fa: "پنهان", ex: "چیزی که دیده نمی‌شود؛ مثلاً هزینه‌های پنهان در یک قرارداد." },
     { k: 4, w: "verzweifelt", bsp: "Sie hat verzweifelt nach ihrem Pass gesucht.", en: "desperate", fa: "درمانده، ناامید", ex: "کسی که راهی پیدا نمی‌کند و امیدش را از دست داده است." },
     { k: 4, w: "vollständig", bsp: "Ihre Unterlagen sind leider nicht vollständig.", en: "complete", fa: "کامل", ex: "چیزی که همهٔ بخش‌هایش موجود است و کم و کسری ندارد." },
+
+    // Kündigungsrecht
+    { k: 0, w: "mündlich", bsp: "Eine mündliche Kündigung ist nicht gültig.", en: "oral, verbal", fa: "شفاهی", ex: "چیزی که با زبان گفته می‌شود و نوشته نیست." },
+    { k: 0, w: "schriftlich", bsp: "Die Kündigung muss schriftlich erfolgen.", en: "written, in writing", fa: "کتبی", ex: "چیزی که روی کاغذ نوشته می‌شود؛ نقطه مقابل mündlich." },
   ],
 
   andere: [
@@ -209,5 +253,6 @@ window.WORDS = {
     { k: 2, w: "unbedingt", bsp: "Diesen Film musst du unbedingt sehen.", en: "absolutely, definitely", fa: "حتماً، به هر قیمتی", ex: "برای تأکید: این کار خیلی مهم است و باید انجام شود." },
     { k: 4, w: "alles inklusive", bsp: "Im Preis ist alles inklusive, auch die Getränke.", en: "all inclusive", fa: "همه چیز شامل قیمت", ex: "غذا، نوشیدنی و خدمات در قیمت حساب شده و هزینهٔ اضافه‌ای ندارد." },
     { k: 4, w: "unterwegs sein", bsp: "Ich bin gerade unterwegs und rufe dich später an.", en: "to be on the way, to be out and about", fa: "در راه بودن", ex: "در سفر یا بیرون از خانه بودن و هنوز به مقصد نرسیدن." },
+    { k: 0, w: "vor Gericht", bsp: "Der Streit endete vor Gericht.", en: "in court", fa: "در دادگاه / در برابر مرجع قضایی", ex: "وقتی اختلاف به دادگاه برده می‌شود؛ مثلاً vor Gericht gehen یعنی شکایت به دادگاه بردن." },
   ],
 };

@@ -311,6 +311,40 @@ h1 {
 .example { display: grid; gap: 4px; padding-top: 14px; border-top: 1px solid var(--line); }
 .example p { margin: 0; font-size: 1.0625rem; line-height: 1.5; }
 
+.satz { font-weight: 600; color: var(--accent); }
+.example p + p { margin-top: 6px; }
+.hl { color: var(--accent); font-weight: 700; }
+.tag-bau { background: var(--accent); color: var(--surface); }
+
+/* Word order guide above the connector list */
+.guide {
+  margin-top: 12px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  direction: rtl;
+  font-family: var(--farsi);
+}
+.guide summary { padding: 12px 14px; font-weight: 700; cursor: pointer; }
+.guide-body { padding: 0 14px 14px; }
+.guide-note { margin: 0 0 10px; color: var(--dim); font-size: .9375rem; line-height: 1.8; }
+.guide dl { margin: 0; }
+.guide dt { margin-top: 12px; font-weight: 700; font-size: .9375rem; color: var(--accent); }
+.guide dd { margin: 2px 0 0; font-family: var(--body); font-size: .9375rem; text-align: left; }
+.guide dd + dd { color: var(--dim); }
+.guide dd b { color: var(--accent); }
+.guide table {
+  width: 100%;
+  margin-top: 14px;
+  border-collapse: collapse;
+  font-family: var(--body);
+  font-size: .875rem;
+  text-align: left;
+}
+.guide th, .guide td { padding: 6px 6px 6px 0; border-top: 1px solid var(--line); vertical-align: top; }
+.guide thead th { border-top: 0; color: var(--dim); }
+.guide tbody th { font-weight: 600; }
+
 .hint { margin: 0; text-align: center; color: var(--dim); font-size: .875rem; }
 .marks { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
 .mark {

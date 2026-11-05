@@ -13,7 +13,7 @@ require(path.resolve("words.js"));
 const slug = (w) =>
   w.toLowerCase().replace(/ä/g, "ae").replace(/ö/g, "oe").replace(/ü/g, "ue").replace(/ß/g, "ss")
     .replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
-const spoken = (w) => w.replace("der/die", "der").replace(/^\(sich\) /, "");
+const spoken = (w) => w.replace("der/die", "der").replace(/^\(sich\) /, "").replace(/…/g, " ");
 
 let made = 0;
 for (const item of Object.values(window.WORDS).flat()) {

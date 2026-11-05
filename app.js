@@ -6,6 +6,7 @@
 
   const TABS = [
     { id: "verben", label: "Verben", items: W.verben.filter((v) => !v.sep && !v.prep) },
+    { id: "konnektoren", label: "Konnektoren", items: W.konnektoren },
     { id: "adjektive", label: "Adjektive", items: W.adjektive },
     { id: "nomen", label: "Nomen", items: W.nomen },
     { id: "trennbar", label: "Trennbare Verben", items: W.verben.filter((v) => v.sep) },
@@ -33,7 +34,7 @@
   function sortKey(w) {
     return w.replace(/^(der\/die|der|die|das)\s+/, "").replace(/^\(sich\)\s+|^sich\s+|^etwas\s+/, "").replace(/^etwas\s+/, "");
   }
-  const spokenText = (w) => w.replace("der/die", "der").replace(/^\(sich\) /, "");
+  const spokenText = (w) => w.replace("der/die", "der").replace(/^\(sich\) /, "").replace(/…/g, " ");
   function slug(w) {
     return w.toLowerCase().replace(/ä/g, "ae").replace(/ö/g, "oe").replace(/ü/g, "ue").replace(/ß/g, "ss").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
   }
@@ -110,6 +111,7 @@
   }
 
   function renderList() {
+    $("guide").hidden = state.tab !== "konnektoren";
     const items = visibleItems();
     const list = $("list");
     list.textContent = "";
@@ -128,6 +130,7 @@
         word.textContent = item.w;
       }
       if (item.prep) word.append(" ", el("span", "row-prep", item.prep));
+      if (item.was) word.append(" ", el("span", "row-prep", item.was));
       b.appendChild(word);
       const icons = MARKS.filter((m) => hasMark(item, m.id));
       if (icons.length) {
@@ -195,6 +198,13 @@
     });
   }
 
+  // In examples, *word* is highlighted: the connector and the verb it moves.
+  function marked(text) {
+    const p = el("p");
+    text.split("*").forEach((part, i) => p.append(i % 2 ? el("strong", "hl", part) : part));
+    return p;
+  }
+
   function pluralLabel(pl) {
     if (pl === "Sg.") return "nur Singular";
     if (pl === "Pl.") return "nur Plural";
@@ -212,6 +222,8 @@
     head.appendChild(title);
     if (item.pl) head.appendChild(el("span", "tag", pluralLabel(item.pl)));
     if (item.sep) head.appendChild(el("span", "tag", "er/sie " + item.sep));
+    if (item.was) head.appendChild(el("span", "tag", item.was));
+    if (item.bau) head.appendChild(el("span", "tag tag-bau", item.bau));
     back.appendChild(head);
 
     const en = el("div", "block");
@@ -230,10 +242,18 @@
       back.appendChild(ex);
     }
 
+    if (item.satz) {
+      const satz = el("div", "example");
+      satz.lang = "de";
+      satz.append(el("span", "label", "Satzbau"), el("p", "satz", item.satz));
+      back.appendChild(satz);
+    }
+
     if (item.bsp) {
       const bsp = el("div", "example");
       bsp.lang = "de";
-      bsp.append(el("span", "label", "Beispiel"), el("p", null, item.bsp));
+      bsp.appendChild(el("span", "label", "Beispiel"));
+      [item.bsp, item.bsp2].filter(Boolean).forEach((text) => bsp.appendChild(marked(text)));
       back.appendChild(bsp);
     }
   }

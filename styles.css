@@ -77,9 +77,11 @@ svg { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; 
   padding-top: var(--safe-t);
 }
 .top-inner { max-width: 640px; margin: 0 auto; }
+.top-row { display: flex; align-items: center; gap: 12px; padding: 0 var(--gut-r) 0 var(--gut-l); }
 h1 {
+  flex: 1;
   margin: 0;
-  padding: 16px var(--gut-r) 10px var(--gut-l);
+  padding: 16px 0 10px;
   font: 700 1.5rem/1.15 var(--display);
   letter-spacing: -.01em;
 }
@@ -103,6 +105,63 @@ h1 {
   white-space: nowrap;
 }
 .tab[aria-current="page"] { color: var(--on-ink); border-bottom-color: var(--amber); }
+
+.account {
+  flex: none;
+  margin-top: 6px;
+  padding: 6px 12px;
+  border: 1px solid rgba(255, 255, 255, .28);
+  border-radius: 999px;
+  background: none;
+  color: var(--on-ink);
+  font-size: .875rem;
+  font-weight: 600;
+}
+.account[data-state="out"] { background: var(--amber); border-color: var(--amber); color: var(--ink); }
+.account[data-state="ok"]::before { content: "✓ "; color: var(--das-on); }
+.account[data-state="error"] { border-color: var(--die-on); color: var(--die-on); }
+
+/* Login */
+.dialog {
+  width: min(400px, calc(100vw - 32px));
+  padding: 22px 20px;
+  border: 0;
+  border-radius: 18px;
+  background: var(--surface);
+  color: var(--fg);
+  box-shadow: var(--shadow);
+}
+.dialog::backdrop { background: rgba(8, 18, 30, .55); }
+.dialog h2 { margin: 0 0 6px; font: 700 1.25rem/1.2 var(--display); }
+.dialog-note { margin: 0 0 14px; color: var(--dim); font-size: .9375rem; }
+.dialog-note a { color: var(--accent); font-weight: 600; }
+.field { display: grid; gap: 4px; margin-bottom: 12px; font-size: .875rem; font-weight: 600; color: var(--dim); }
+.field input {
+  height: 46px;
+  padding: 0 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--bg);
+  color: var(--fg);
+  font: inherit;
+  font-size: 16px;
+  font-weight: 400;
+}
+.field input:focus { outline: 0; border-color: var(--accent); }
+.token-box { padding-top: 4px; }
+.dialog-error { min-height: 1.2em; margin: 0 0 8px; color: var(--hard); font-size: .9375rem; }
+.dialog-error:empty { display: none; }
+.dialog-actions { display: flex; justify-content: flex-end; gap: 8px; }
+.btn {
+  min-height: 44px;
+  padding: 0 16px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--surface);
+  font-weight: 600;
+}
+.btn-primary { background: var(--accent); border-color: var(--accent); color: var(--surface); }
+.btn:disabled { opacity: .6; }
 
 /* List */
 .wrap {

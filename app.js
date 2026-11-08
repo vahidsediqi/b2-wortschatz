@@ -47,10 +47,20 @@
   const tab = () => TABS.find((t) => t.id === state.tab);
 
   /* Marks are saved in this browser, keyed by word, so a verb shown in two
-     tabs keeps the same marks in both. */
+     tabs keeps the same marks in both. After login, sync.js also saves them
+     online; the time of each change decides which device wins. */
   const MARKS_KEY = "b2-marks";
+  const TIMES_KEY = "b2-marks-time";
   let marks = {};
+  let times = {};
   try { marks = JSON.parse(localStorage.getItem(MARKS_KEY)) || {}; } catch (e) { /* storage is optional */ }
+  try { times = JSON.parse(localStorage.getItem(TIMES_KEY)) || {}; } catch (e) { /* storage is optional */ }
+  function saveMarks() {
+    try {
+      localStorage.setItem(MARKS_KEY, JSON.stringify(marks));
+      localStorage.setItem(TIMES_KEY, JSON.stringify(times));
+    } catch (e) { /* storage is optional */ }
+  }
 
   const hasMark = (item, id) => (marks[slug(item.w)] || []).includes(id);
   function toggleMark(item, id) {
@@ -59,7 +69,9 @@
     const next = current.includes(id) ? current.filter((m) => m !== id) : [...current, id];
     if (next.length) marks[key] = next;
     else delete marks[key];
-    try { localStorage.setItem(MARKS_KEY, JSON.stringify(marks)); } catch (e) { /* storage is optional */ }
+    times[key] = Date.now();
+    saveMarks();
+    scheduleSync();
   }
 
   function visibleItems() {
@@ -514,6 +526,127 @@
   scene.addEventListener("touchcancel", () => {
     if (endDrag()) settle(dragX);
   }, { passive: true });
+
+  /* Login and online saving (see sync.js) */
+  let syncTimer = 0;
+  let syncing = false;
+  let syncAgain = false;
+
+  function setStatus(text, state) {
+    const btn = $("account");
+    btn.textContent = text;
+    btn.dataset.state = state;
+  }
+  function showStatus() {
+    const s = B2Sync.session();
+    if (!s) setStatus("Anmelden", "out");
+    $("accountUser").textContent = s ? s.user : "";
+  }
+
+  function rerender() {
+    if (!$("listView").hidden) {
+      renderChips();
+      renderList();
+    } else if (state.deck[state.cardIndex]) {
+      renderMarks(state.deck[state.cardIndex]);
+    }
+  }
+
+  async function runSync() {
+    if (!B2Sync.session()) return;
+    if (syncing) {
+      syncAgain = true;
+      return;
+    }
+    syncing = true;
+    setStatus("Speichert …", "busy");
+    try {
+      const merged = await B2Sync.sync({ marks, times });
+      // Keep any change made while the sync was running.
+      Object.keys(merged.times).forEach((k) => {
+        if ((times[k] || 0) <= merged.times[k]) {
+          times[k] = merged.times[k];
+          if (merged.marks[k]) marks[k] = merged.marks[k];
+          else delete marks[k];
+        }
+      });
+      saveMarks();
+      rerender();
+      setStatus("Gespeichert", "ok");
+    } catch (e) {
+      if (e.status === 401) {
+        B2Sync.logout();
+        showStatus();
+      } else {
+        setStatus("Nicht gespeichert", "error");
+      }
+    }
+    syncing = false;
+    if (syncAgain) {
+      syncAgain = false;
+      runSync();
+    }
+  }
+  function scheduleSync() {
+    if (!B2Sync.session()) return;
+    clearTimeout(syncTimer);
+    setStatus("Speichert …", "busy");
+    syncTimer = setTimeout(runSync, 1200);
+  }
+
+  $("account").addEventListener("click", () => {
+    showStatus();
+    if (B2Sync.session()) {
+      $("accountDialog").showModal();
+    } else {
+      $("loginError").textContent = "";
+      $("loginDialog").showModal();
+    }
+  });
+  $("loginCancel").addEventListener("click", () => $("loginDialog").close());
+  $("accountClose").addEventListener("click", () => $("accountDialog").close());
+  $("logout").addEventListener("click", () => {
+    B2Sync.logout();
+    showStatus();
+    $("accountDialog").close();
+  });
+  $("loginForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const submit = $("loginSubmit");
+    submit.disabled = true;
+    submit.textContent = "Prüft …";
+    $("loginError").textContent = "";
+    const result = await B2Sync.login($("loginUser").value, $("loginPw").value, $("loginToken").value);
+    submit.disabled = false;
+    submit.textContent = "Anmelden";
+    if (result.needToken) {
+      $("tokenBox").hidden = false;
+      $("loginToken").required = true;
+      $("loginToken").focus();
+      return;
+    }
+    if (result.error) {
+      $("loginError").textContent = result.error;
+      return;
+    }
+    $("loginPw").value = "";
+    $("loginToken").value = "";
+    $("tokenBox").hidden = true;
+    $("loginDialog").close();
+    showStatus();
+    runSync();
+  });
+
+  // Fetch changes from other devices whenever the app comes back to the front.
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "visible") runSync();
+    else if (syncTimer) {
+      clearTimeout(syncTimer);
+      runSync();
+    }
+  });
+  showStatus();
+  runSync();
 
   window.addEventListener("hashchange", route);
 

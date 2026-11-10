@@ -468,6 +468,16 @@ window.WORDS = {
     { k: 0, w: "mit links", bsp: "Das mache ich mit links.", en: "easily, with no effort", fa: "خیلی راحت", ex: "اصطلاح است: کاری آن‌قدر آسان است که با دست چپ هم می‌شود انجامش داد." },
     { k: 0, w: "in Kontakt treten", bsp: "Bitte treten Sie mit Frau Schönfelder in Kontakt.", en: "to get in touch", fa: "تماس گرفتن", ex: "شکل رسمی sich melden است. با mit و حالت داتیو می‌آید." },
     { k: 0, w: "sich in Verbindung setzen", bsp: "Er setzt sich zur Terminvereinbarung mit Ihnen in Verbindung.", en: "to get in touch", fa: "تماس گرفتن", ex: "عبارت رسمی برای تماس گرفتن، با mit و حالت داتیو. با in Kontakt treten یکی است، اما فعل آن فرق دارد." },
+    // Kapitel 5: Ausbildung und Studium
+    { k: 5, w: "abgeschlossene Berufsausbildung", bsp: "Für die Stelle brauchen Sie eine abgeschlossene Berufsausbildung.", en: "completed vocational training", fa: "آموزش حرفه‌ای تمام‌شده", ex: "یعنی دورهٔ Ausbildung را تا آخر گذرانده و مدرک آن را گرفته‌اید. در آگهی‌های کار زیاد می‌آید." },
+    { k: 5, w: "die Ausbildungsdauer", bsp: "Die Ausbildungsdauer beträgt drei Jahre.", en: "length of training", fa: "مدت آموزش", ex: "مدت زمانی که یک Ausbildung طول می‌کشد؛ معمولاً دو تا سه و نیم سال." },
+    { k: 5, w: "der Ausbildungsort", bsp: "Der Ausbildungsort ist unsere Filiale in Frankfurt.", en: "place of training", fa: "محل آموزش", ex: "شهر یا شرکتی که Ausbildung در آن انجام می‌شود." },
+    { k: 5, w: "die Berufserfahrung", bsp: "Sie haben mindestens zwei Jahre Berufserfahrung.", en: "work experience", fa: "سابقهٔ کار", ex: "تجربه‌ای که در کار کردن به دست آورده‌اید. معمولاً با سال گفته می‌شود: zwei Jahre Berufserfahrung." },
+    { k: 5, w: "duales Studium", bsp: "Im dualen Studium lernt man an der Hochschule und arbeitet in einer Firma.", en: "dual study programme (work and study)", fa: "تحصیل دوگانه (دانشگاه و کار)", ex: "تحصیل دانشگاهی که هم‌زمان با کار در یک شرکت است. دانشجو در این مدت حقوق می‌گیرد." },
+    { k: 5, w: "finanziell unabhängig", bsp: "Mit einem dualen Studium ist man früh finanziell unabhängig.", en: "financially independent", fa: "مستقل از نظر مالی", ex: "یعنی خودتان پول درمی‌آورید و به پول پدر و مادر یا دولت نیاز ندارید." },
+    { k: 5, w: "führendes Unternehmen", bsp: "Wir sind ein führendes Unternehmen in der Reisebranche.", en: "leading company", fa: "شرکت پیشرو", ex: "یکی از بزرگ‌ترین یا بهترین شرکت‌ها در یک رشته. شرکت‌ها در آگهی کار زیاد خود را این‌طور معرفی می‌کنند." },
+    { k: 5, w: "Dokumente für die Hochschulzulassung", bsp: "Die Dokumente für die Hochschulzulassung schicken Sie bitte bis zum 15. Juli.", en: "documents for university admission", fa: "مدارک لازم برای پذیرش دانشگاه", ex: "مدارکی مثل دیپلم و نمرات که برای قبولی در دانشگاه باید فرستاد." },
+    { k: 5, w: "überdurchschnittliche Vergütung", bsp: "Wir bieten Ihnen eine überdurchschnittliche Vergütung.", en: "above-average pay", fa: "حقوق بالاتر از میانگین", ex: "حقوقی که از حقوق معمول در آن شغل بیشتر است. Vergütung شکل رسمی Gehalt است." },
   ],
   // was = what it expresses, bau = where the verb goes, satz = sentence pattern.
   // In bsp and bsp2, *word* is highlighted: the connector and the verb it moves.

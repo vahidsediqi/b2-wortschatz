@@ -12,7 +12,7 @@
     sep  separable verbs only: the split form, e.g. "stimmt ab"
     prep verbs with a preposition only, e.g. "über + A."
 
-  Connectors have their own list at the end of this file.
+  Connectors and Redewendungen have their own lists near the end of this file.
 
   A verb with sep shows under Trennbare Verben, a verb with prep shows under
   Verben + Präposition, a verb with both shows in both tabs, and a verb with
@@ -672,6 +672,41 @@ window.WORDS = {
     { k: 7, w: "Was würden Sie mir empfehlen?", bsp: "Ich habe oft Rückenschmerzen. Was würden Sie mir empfehlen?", en: "What would you recommend?", fa: "به من چه پیشنهادی می‌کنید؟", ex: "سؤال مؤدبانه برای گرفتن توصیه، مثلاً از پزشک یا فروشنده." },
     { k: 7, w: "auf jeden Fall", bsp: "Besorgen Sie auf jeden Fall zuerst ein Rezept.", en: "in any case, definitely", fa: "در هر صورت، حتماً", ex: "برای تأکید: این کار حتماً لازم است. مثل unbedingt." },
     { k: 7, w: "Es ist nie zu spät.", bsp: "Es ist nie zu spät, mit Sport anzufangen.", en: "It is never too late.", fa: "هیچ‌وقت دیر نیست.", ex: "بعد از آن معمولاً zu + مصدر می‌آید." },
+  ],
+  // Redewendungen: expressions from class, each with all its examples.
+  // mehr = more example sentences after bsp and bsp2.
+  redewendungen: [
+    { k: 0, w: "Ich genieße das herrliche Gefühl, … zu …", bsp: "Ich genieße das herrliche Gefühl, *nichts zu tun*.", bsp2: "Ich genieße das herrliche Gefühl, am Morgen in Ruhe einen Kaffee auf dem Balkon *zu trinken*.", mehr: [
+      "Ich genieße das herrliche Gefühl, eine Massage *zu bekommen*.",
+      "Ich genieße das herrliche Gefühl, mit Freunden *zu essen*.",
+      "Ich genieße das herrliche Gefühl, ein Fußballspiel im Stadion *zu gucken* und dabei ein Bier *zu trinken*.",
+      "Ich genieße das herrliche Gefühl, am Wochenende mit meiner Familie einen Film *zu schauen*.",
+      "Ich genieße das herrliche Gefühl, *zu reisen*.",
+      "Ich genieße das herrliche Gefühl, montags nicht zur Schule gehen *zu müssen*.",
+      "Ich genieße das herrliche Gefühl, am Meer *zu sitzen*.",
+      "Ich genieße das herrliche Gefühl, die warmen Sonnenstrahlen *zu spüren*.",
+      "Ich genieße das herrliche Gefühl, am Abend ein Buch *zu lesen*.",
+    ], en: "I enjoy the wonderful feeling of …", fa: "از این حس فوق‌العاده لذت می‌برم که …", ex: "بعد از ویرگول یک جملهٔ zu + مصدر می‌آید و مصدر به آخر جمله می‌رود. با فعل وجهی، zu قبل از فعل وجهی می‌آید: nicht zur Schule gehen zu müssen." },
+    { k: 0, w: "Klarheit gewinnen", prep: "über + A., bei + D.", bsp: "Ich würde gerne *Klarheit über* meine berufliche Zukunft *gewinnen*.", bsp2: "Ich würde gerne *Klarheit bei* der Steuererklärung *gewinnen*.", mehr: [
+      "Ich muss *Klarheit über* die deutsche Grammatik *gewinnen*.",
+      "Hast du schon *Klarheit über* die Vor- und Nachteile *gewonnen*?",
+      "Manchmal braucht man etwas Zeit, um *Klarheit bei* schwierigen Entscheidungen *zu gewinnen*.",
+    ], en: "to gain clarity about", fa: "دربارهٔ چیزی به روشنی رسیدن", ex: "یعنی چیزی را که مبهم بود واضح فهمیدن. über + آکوزاتیو برای یک موضوع (über meine Zukunft)، bei + داتیو برای یک کار یا موقعیت (bei der Steuererklärung). شکل گذشتهٔ آن Klarheit gewonnen است." },
+    { k: 0, w: "zur Verfügung haben", bsp: "Wir haben für unseren Unterricht noch 55 Minuten *zur Verfügung*.", bsp2: "Ich habe im Monat 200 Euro *zur freien Verfügung*.", mehr: [
+      "Wir haben zwei Monate bis zur B2-Prüfung *zur Verfügung*.",
+      "Ich muss meinem Baby rund um die Uhr *zur Verfügung stehen*.",
+    ], en: "to have available", fa: "در اختیار داشتن", ex: "etwas zur Verfügung haben یعنی چیزی (وقت، پول) در اختیار شماست. zur freien Verfügung یعنی آزادانه می‌توانید خرجش کنید. فرق: jemandem zur Verfügung stehen یعنی خود شما برای کسی آماده و در دسترس هستید." },
+    { k: 0, w: "Es dreht sich alles um …", bsp: "Heute *dreht sich alles um* das Thema, wie man sein Leben vereinfachen kann.", bsp2: "An Weihnachten *dreht sich alles um* Familie und Geschenke.", mehr: [
+      "Im Meeting *dreht sich alles um* die neuen Pläne.",
+      "Heutzutage *dreht sich alles* nur *um* die Work-Life-Balance.",
+      "In diesem Monat *dreht sich alles um* die Prüfung.",
+    ], en: "It's all about …", fa: "همه چیز حول … می‌چرخد", ex: "یعنی موضوع اصلی و مهم‌ترین چیز همین است. بعد از um حالت آکوزاتیو می‌آید. فعل drehen در جای دوم است، پس اگر جمله با Heute شروع شود: Heute dreht sich alles um …" },
+    { k: 0, w: "sich von etwas auffressen lassen", prep: "von + D.", bsp: "Ich will mich nicht vom Stress *auffressen lassen*.", bsp2: "Ich will mich vor der Prüfung nicht von der Aufregung *auffressen lassen*.", mehr: [
+      "Das Fitnesstraining *frisst* mich *auf*.",
+      "Die Bürokratie in Deutschland *frisst* mich *auf*.",
+      "Der Krieg in meinem Heimatland *frisst* mich *auf*.",
+    ], en: "to let something eat you up", fa: "اجازه دادن که چیزی آدم را از پا دربیاورد", ex: "auffressen در اصل یعنی حیوانی چیزی را کامل بخورد. به‌طور مجازی یعنی استرس، کار یا نگرانی همهٔ انرژی و فکر آدم را بگیرد. فعل جداشدنی است: Das frisst mich auf." },
+    { k: 0, w: "Schluss machen", prep: "mit + D.", bsp: "In 20 Minuten *machen* wir mit dem Unterricht *Schluss*.", bsp2: "Ich habe gestern mit meinem Freund *Schluss gemacht*.", en: "to finish; to break up with", fa: "تمام کردن؛ رابطه را به هم زدن", ex: "mit etwas Schluss machen یعنی کاری را تمام کردن. mit jemandem Schluss machen یعنی به یک رابطهٔ عاشقانه پایان دادن." },
   ],
   // was = what it expresses, bau = where the verb goes, satz = sentence pattern.
   // In bsp and bsp2, *word* is highlighted: the connector and the verb it moves.

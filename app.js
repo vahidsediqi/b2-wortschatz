@@ -13,13 +13,14 @@
     { id: "trennbar", label: "Trennbare Verben", items: W.verben.filter((v) => v.sep) },
     { id: "praeposition", label: "Verben + Präposition", items: W.verben.filter((v) => v.prep) },
     { id: "andere", label: "Andere", items: W.andere },
+    { id: "redewendungen", label: "Redewendungen", items: W.redewendungen || [] },
   ];
   TABS.forEach((t) => t.items.sort(byWord));
 
   /* Monatsplan: every word belongs to one month before the exam (plan.js,
      made by tools/make-plan.js). Each month works like a tab of its own. */
   const PLAN = window.PLAN || { months: [], words: {} };
-  const ALL_WORDS = [...W.nomen, ...W.verben, ...W.adjektive, ...W.andere, ...W.konnektoren];
+  const ALL_WORDS = [...W.nomen, ...W.verben, ...W.adjektive, ...W.andere, ...(W.redewendungen || []), ...W.konnektoren];
   const lastMonth = PLAN.months.length ? PLAN.months[PLAN.months.length - 1].id : "";
   const MONTH_TABS = PLAN.months.map((m) => ({
     id: m.id,
@@ -377,7 +378,7 @@
       const bsp = el("div", "example");
       bsp.lang = "de";
       bsp.appendChild(el("span", "label", "Beispiel"));
-      [item.bsp, item.bsp2].filter(Boolean).forEach((text) => bsp.appendChild(marked(text)));
+      [item.bsp, item.bsp2, ...(item.mehr || [])].filter(Boolean).forEach((text) => bsp.appendChild(marked(text)));
       back.appendChild(bsp);
     }
   }

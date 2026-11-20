@@ -427,3 +427,70 @@ h1 {
 @media (prefers-reduced-motion: reduce) {
   .card { transition: none; }
 }
+
+/* Monatsplan */
+[hidden] { display: none !important; }
+.plan { display: grid; gap: 12px; }
+.plan-intro {
+  background: var(--ink);
+  color: var(--on-ink);
+  border-radius: 16px;
+  padding: 16px 18px;
+}
+.plan-exam { margin: 0; color: var(--on-ink-dim); font-size: .9375rem; }
+.plan-left { margin: 2px 0 12px; font: 700 1.75rem/1.15 var(--display); color: var(--amber); }
+.plan-done { margin: 8px 0 0; font-size: .875rem; color: var(--on-ink-dim); font-variant-numeric: tabular-nums; }
+.plan-intro .progress { background: rgba(255, 255, 255, .16); }
+.plan-intro .progress span { background: var(--amber); }
+.progress {
+  height: 8px;
+  border-radius: 99px;
+  background: var(--line);
+  overflow: hidden;
+}
+.progress span { display: block; height: 100%; border-radius: inherit; background: var(--learned); }
+.month {
+  display: grid;
+  gap: 4px;
+  width: 100%;
+  text-align: left;
+  font: inherit;
+  color: var(--fg);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 14px 16px;
+  cursor: pointer;
+}
+.month:active { background: var(--bg); }
+.month-now { border: 2px solid var(--accent); }
+.month-past { opacity: .75; }
+.month-head { display: flex; align-items: center; gap: 8px; }
+.month-name { flex: 1; font: 700 1.25rem/1.2 var(--display); }
+.month-badge {
+  background: var(--accent);
+  color: var(--surface);
+  border-radius: 99px;
+  padding: 2px 10px;
+  font-size: .8125rem;
+  font-weight: 600;
+}
+.month-badge-dim { background: var(--line); color: var(--dim); }
+.month-dates, .month-done { color: var(--dim); font-size: .875rem; font-variant-numeric: tabular-nums; }
+.month-stats { font-weight: 600; margin-bottom: 6px; }
+.plan-tip { margin: 4px 2px 0; color: var(--dim); font: .9375rem/1.8 var(--farsi); }
+.month-top { margin-bottom: 12px; }
+.month-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  border: 0;
+  background: none;
+  color: var(--accent);
+  font: 600 .9375rem var(--body);
+  padding: 4px 0;
+  cursor: pointer;
+}
+.month-back svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+.month-title { margin: 4px 0 0; font: 700 1.375rem/1.2 var(--display); }
+.month-note { margin: 2px 0 0; color: var(--dim); font-size: .875rem; font-variant-numeric: tabular-nums; }

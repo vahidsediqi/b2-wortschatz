@@ -5,6 +5,7 @@
   const byWord = (a, b) => sortKey(a.w).localeCompare(sortKey(b.w), "de");
 
   const TABS = [
+    { id: "plan", label: "Monatsplan", items: [] },
     { id: "verben", label: "Verben", items: W.verben.filter((v) => !v.sep && !v.prep) },
     { id: "konnektoren", label: "Konnektoren", items: W.konnektoren },
     { id: "adjektive", label: "Adjektive", items: W.adjektive },
@@ -14,6 +15,20 @@
     { id: "andere", label: "Andere", items: W.andere },
   ];
   TABS.forEach((t) => t.items.sort(byWord));
+
+  /* Monatsplan: every word belongs to one month before the exam (plan.js,
+     made by tools/make-plan.js). Each month works like a tab of its own. */
+  const PLAN = window.PLAN || { months: [], words: {} };
+  const ALL_WORDS = [...W.nomen, ...W.verben, ...W.adjektive, ...W.andere, ...W.konnektoren];
+  const lastMonth = PLAN.months.length ? PLAN.months[PLAN.months.length - 1].id : "";
+  const MONTH_TABS = PLAN.months.map((m) => ({
+    id: m.id,
+    label: m.label + " " + m.year,
+    month: m,
+    items: ALL_WORDS.filter((i) => (PLAN.words[slug(i.w)] || lastMonth) === m.id).sort(byWord),
+  }));
+  const ALL_TABS = [...TABS, ...MONTH_TABS];
+  const isMonth = (id) => MONTH_TABS.some((t) => t.id === id);
 
   const MARKS = [
     { id: "gelernt", label: "Gelernt", icon: '<path d="m5 12.500 4.500 4.500L19 7.500"/>' },
@@ -44,7 +59,7 @@
     return m ? { art: m[1], word: m[2] } : { art: "", word: w };
   }
   const artClass = (art) => (art === "der/die" ? "any" : art);
-  const tab = () => TABS.find((t) => t.id === state.tab);
+  const tab = () => ALL_TABS.find((t) => t.id === state.tab);
 
   /* Marks are saved in this browser, keyed by word, so a verb shown in two
      tabs keeps the same marks in both. After login, sync.js also saves them
@@ -90,7 +105,7 @@
     TABS.forEach((t) => {
       const b = el("button", "tab", t.label);
       b.type = "button";
-      if (t.id === state.tab) b.setAttribute("aria-current", "page");
+      if (t.id === state.tab || (t.id === "plan" && isMonth(state.tab))) b.setAttribute("aria-current", "page");
       b.addEventListener("click", () => {
         state.filter = "alle";
         state.query = "";
@@ -166,6 +181,103 @@
         : "Kein Wort gefunden. Prüfen Sie die Schreibweise.";
     }
   }
+
+
+  /* Monatsplan view: the three months, and a header above a month's list */
+  const DAY = 864e5;
+  const fmtDay = (iso) => {
+    const d = new Date(iso + "T12:00:00");
+    return d.getDate() + ". " + d.toLocaleDateString("de-DE", { month: "short" }).replace(".", "");
+  };
+  const todayIso = () => {
+    const d = new Date();
+    return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0");
+  };
+  const daysIn = (m) => Math.round((Date.parse(m.to) - Date.parse(m.from)) / DAY) + 1;
+  const learnedIn = (items) => items.filter((i) => hasMark(i, "gelernt")).length;
+
+  function progress(done, total) {
+    const bar = el("div", "progress");
+    bar.setAttribute("role", "progressbar");
+    bar.setAttribute("aria-valuemin", "0");
+    bar.setAttribute("aria-valuemax", String(total));
+    bar.setAttribute("aria-valuenow", String(done));
+    const fill = el("span");
+    fill.style.width = (total ? (done / total) * 100 : 0) + "%";
+    bar.appendChild(fill);
+    return bar;
+  }
+
+  function monthCard(t) {
+    const m = t.month;
+    const today = todayIso();
+    const status = today > m.to ? "past" : today >= m.from ? "now" : "next";
+    const done = learnedIn(t.items);
+    const b = el("button", "month month-" + status);
+    b.type = "button";
+    const head = el("span", "month-head");
+    head.appendChild(el("span", "month-name", t.label));
+    if (status === "now") head.appendChild(el("span", "month-badge", "Jetzt"));
+    if (status === "past") head.appendChild(el("span", "month-badge month-badge-dim", "Vorbei"));
+    b.appendChild(head);
+    b.appendChild(el("span", "month-dates", fmtDay(m.from) + " bis " + fmtDay(m.to)));
+    b.appendChild(el("span", "month-stats",
+      t.items.length + " Wörter · etwa " + Math.ceil(t.items.length / daysIn(m)) + " pro Tag"));
+    b.appendChild(progress(done, t.items.length));
+    b.appendChild(el("span", "month-done", done + " von " + t.items.length + " gelernt"));
+    b.addEventListener("click", () => {
+      state.filter = "alle";
+      state.query = "";
+      $("search").value = "";
+      location.hash = t.id;
+    });
+    return b;
+  }
+
+  function renderPlan() {
+    const onPlan = state.tab === "plan";
+    const month = isMonth(state.tab) ? tab() : null;
+    $("plan").hidden = !onPlan;
+    $("monthHead").hidden = !month;
+    document.querySelector(".tools").hidden = onPlan;
+    $("count").hidden = onPlan;
+    $("list").hidden = onPlan;
+    if (onPlan) $("guide").hidden = true;
+
+    if (month) {
+      const done = learnedIn(month.items);
+      $("monthTitle").textContent = month.label;
+      $("monthNote").textContent = fmtDay(month.month.from) + " bis " + fmtDay(month.month.to) +
+        " · " + done + " von " + month.items.length + " gelernt";
+    }
+    if (!onPlan) return;
+
+    const box = $("plan");
+    box.textContent = "";
+    const all = MONTH_TABS.reduce((n, t) => n + t.items.length, 0);
+    const done = MONTH_TABS.reduce((n, t) => n + learnedIn(t.items), 0);
+    const end = PLAN.months.length ? PLAN.months[PLAN.months.length - 1].to : todayIso();
+    const left = Math.max(0, Math.round((Date.parse(end) - Date.parse(todayIso())) / DAY));
+
+    const intro = el("div", "plan-intro");
+    intro.appendChild(el("p", "plan-exam", "Prüfung: " + (PLAN.exam || "")));
+    intro.appendChild(el("p", "plan-left", left === 1 ? "Noch 1 Tag" : "Noch " + left + " Tage"));
+    intro.appendChild(progress(done, all));
+    intro.appendChild(el("p", "plan-done", done + " von " + all + " Wörtern gelernt"));
+    box.appendChild(intro);
+
+    MONTH_TABS.forEach((t) => box.appendChild(monthCard(t)));
+
+    const tip = el("p", "plan-tip");
+    tip.dir = "rtl";
+    tip.lang = "fa";
+    tip.textContent = "هر روز چند کلمه از ماه جاری را یاد بگیرید و بعد از یادگرفتن، زیر کارت «Gelernt» را بزنید تا پیشرفت شما اینجا دیده شود.";
+    box.appendChild(tip);
+  }
+
+  $("monthBack").addEventListener("click", () => {
+    location.hash = "plan";
+  });
 
   /* Card view */
   function fontSizeFor(text) {
@@ -366,7 +478,7 @@
   /* Routing: #tab shows the list, #tab/word shows the card */
   function route() {
     const [tabId, wordSlug] = location.hash.slice(1).split("/");
-    const known = TABS.some((t) => t.id === tabId);
+    const known = ALL_TABS.some((t) => t.id === tabId);
     const changedTab = known && tabId !== state.tab;
     if (known) state.tab = tabId;
     try { localStorage.setItem("b2-tab", state.tab); } catch (e) { /* storage is optional */ }
@@ -398,8 +510,11 @@
     $("cardView").hidden = true;
     $("listView").hidden = false;
     renderTabs();
-    renderChips();
-    renderList();
+    renderPlan();
+    if (state.tab !== "plan") {
+      renderChips();
+      renderList();
+    }
     window.scrollTo(0, changedTab ? 0 : state.listScroll);
     if (changedTab) state.listScroll = 0;
   }
@@ -545,6 +660,8 @@
 
   function rerender() {
     if (!$("listView").hidden) {
+      renderPlan();
+      if (state.tab === "plan") return;
       renderChips();
       renderList();
     } else if (state.deck[state.cardIndex]) {
@@ -653,7 +770,7 @@
   if (!location.hash) {
     let saved = null;
     try { saved = localStorage.getItem("b2-tab"); } catch (e) { /* storage is optional */ }
-    if (saved && TABS.some((t) => t.id === saved)) state.tab = saved;
+    if (saved && ALL_TABS.some((t) => t.id === saved)) state.tab = saved;
     history.replaceState(null, "", "#" + state.tab);
   }
   route();

@@ -278,6 +278,58 @@ window.WORDS = {
     { k: 6, w: "die Vereinbarung", pl: "-en", bsp: "Wir haben eine Vereinbarung über die Arbeitszeit getroffen.", en: "agreement", fa: "توافق، قرار" },
     { k: 6, w: "der Vertragsbeginn", pl: "Sg.", bsp: "Der Vertragsbeginn ist der erste März.", en: "start of the contract", fa: "شروع قرارداد" },
     { k: 6, w: "die Zuwanderung", pl: "-en", bsp: "Viele Firmen hoffen auf die Zuwanderung von Fachkräften.", en: "immigration", fa: "مهاجرت (به داخل کشور)" },
+
+    // Sprachbausteine: Auftragserteilung und Bewerbung
+    { k: 0, w: "die Auftragserteilung", pl: "-en", bsp: "Wir danken Ihnen für die schnelle Auftragserteilung.", en: "placing of an order", fa: "سفارش دادن، واگذاری سفارش" },
+    { k: 0, w: "die Raumausstattung", pl: "-en", bsp: "Die Firma bietet alles im Bereich der Raumausstattung an.", en: "interior furnishing", fa: "تجهیز و دکوراسیون داخلی" },
+    { k: 0, w: "der Eingangsbereich", pl: "-e", bsp: "Wir möchten unseren Eingangsbereich modernisieren.", en: "entrance area, lobby", fa: "ورودی، لابی" },
+    { k: 0, w: "der Nettopreis", pl: "-e", bsp: "Wie besprochen, sind alle aufgeführten Kosten Nettopreise.", en: "net price (without VAT)", fa: "قیمت خالص (بدون مالیات)" },
+    { k: 0, w: "die Zufriedenheit", pl: "Sg.", bsp: "Die Bestellung wurde zu unserer vollen Zufriedenheit ausgeführt.", en: "satisfaction", fa: "رضایت" },
+    { k: 0, w: "der Bewerbungsschluss", pl: "Sg.", bsp: "Seit dem Bewerbungsschluss sind einige Wochen vergangen.", en: "application deadline", fa: "مهلت پایان درخواست" },
+    { k: 0, w: "der Auswahlprozess", pl: "-e", bsp: "Wie geht der Auswahlprozess weiter?", en: "selection process", fa: "روند انتخاب" },
+    { k: 0, w: "die Erreichbarkeit", pl: "Sg.", bsp: "Aufgrund der guten Erreichbarkeit gefällt mir die Stelle besser.", en: "accessibility, easy to reach", fa: "دسترسی آسان" },
+
+    // Kapitel 7: Gesundheit
+    { k: 7, w: "die Pflegekraft", pl: "¨-e", bsp: "Fünfmal pro Woche kommt eine Pflegekraft.", en: "carer, nursing staff", fa: "پرستار، مراقب" },
+    { k: 7, w: "die Vorsorgemaßnahme", pl: "-n", bsp: "Die Krankenkasse bezahlt Vorsorgemaßnahmen gegen Rückenschmerzen.", en: "preventive measure", fa: "اقدام پیشگیرانه" },
+    { k: 7, w: "die Krankenkasse", pl: "-n", bsp: "Viele Krankenkassen bieten Kurse für einen gesunden Rücken an.", en: "health insurance company", fa: "بیمهٔ درمانی" },
+    { k: 7, w: "die Ernährungsberaterin", pl: "-nen", bsp: "Die Ernährungsberaterin hat vor, an einer Fortbildung teilzunehmen.", en: "nutritionist (female)", fa: "مشاور تغذیه (زن)" },
+    { k: 7, w: "die Physiotherapeutin", pl: "-nen", bsp: "Die Physiotherapeutin motiviert ihre Patientin zu täglichen Übungen.", en: "physiotherapist (female)", fa: "فیزیوتراپیست (زن)" },
+    { k: 7, w: "das Rheuma", pl: "Sg.", bsp: "Der ältere Herr hat Rheuma.", en: "rheumatism", fa: "روماتیسم" },
+    { k: 7, w: "die Fortbildung", pl: "-en", bsp: "Im Mai nehme ich an einer Fortbildung teil.", en: "further training", fa: "دورهٔ آموزشی تکمیلی" },
+    { k: 7, w: "der Notfall", pl: "¨-e", bsp: "Im Notfall rufen Sie bitte die 112 an.", en: "emergency", fa: "موقعیت اضطراری" },
+
+    // Kapitel 8: In der Gastronomie
+    { k: 8, w: "die Gastronomie", pl: "Sg.", bsp: "Er arbeitet schon lange in der Gastronomie.", en: "restaurant and catering business", fa: "رستوران‌داری، صنعت غذا" },
+    { k: 8, w: "das Menü", pl: "-s", bsp: "Heute gibt es ein vegetarisches Menü.", en: "set meal, menu", fa: "منوی غذا (چند غذا با هم)" },
+    { k: 8, w: "das Tagesgericht", pl: "-e", bsp: "Das Restaurant bietet jeden Tag ein günstiges Tagesgericht an.", en: "dish of the day", fa: "غذای روز" },
+    { k: 8, w: "der Duft", pl: "¨-e", bsp: "In der Küche gibt es einen angenehmen Duft.", en: "scent, smell", fa: "بوی خوش" },
+    { k: 8, w: "das Ambiente", pl: "Sg.", bsp: "Das Restaurant wirbt mit einem entspannenden Ambiente.", en: "atmosphere, ambience", fa: "فضا، حال‌وهوا" },
+    { k: 8, w: "die Speisekarte", pl: "-n", bsp: "Das Restaurant hat eine umfangreiche Speisekarte.", en: "menu (list of dishes)", fa: "منوی رستوران" },
+    { k: 8, w: "die Weinkarte", pl: "-n", bsp: "Die Weinbar hat eine erstklassige Weinkarte.", en: "wine list", fa: "فهرست شراب" },
+    { k: 8, w: "der Nachtisch", pl: "-e", bsp: "Als Nachtisch hätte ich gern etwas Süßes.", en: "dessert", fa: "دسر" },
+    { k: 8, w: "die Ente", pl: "-n", bsp: "Die knusprige Ente ist hier sehr beliebt.", en: "duck", fa: "اردک" },
+    { k: 8, w: "die Beratung", pl: "-en", bsp: "In der Weinbar gibt es eine perfekte Beratung.", en: "advice, consultation", fa: "مشاوره، راهنمایی" },
+    { k: 8, w: "der Genuss", pl: "¨-e", bsp: "Das Essen war ein echter Genuss.", en: "enjoyment, delight", fa: "لذت" },
+    { k: 8, w: "der Lammbraten", pl: "-", bsp: "Das schwierigste Gericht im Kurs ist der traditionelle Lammbraten.", en: "roast lamb", fa: "کباب گوشت بره" },
+    { k: 8, w: "die Gemüsebrühe", pl: "-n", bsp: "Lösche das Gemüse mit heißer Gemüsebrühe ab.", en: "vegetable stock", fa: "آب سبزیجات" },
+    { k: 8, w: "das Lorbeerblatt", pl: "¨-er", bsp: "Gib ein frisches Lorbeerblatt in die Suppe.", en: "bay leaf", fa: "برگ بو" },
+    { k: 8, w: "der Lauch", pl: "Sg.", bsp: "Du brauchst zwei Stangen Lauch.", en: "leek", fa: "تره فرنگی" },
+    { k: 8, w: "die Zwiebel", pl: "-n", bsp: "Schneide die roten Zwiebeln in kleine Würfel.", en: "onion", fa: "پیاز" },
+    { k: 8, w: "der Sellerie", pl: "Sg.", bsp: "Für die Suppe brauchst du einen kleinen Sellerie.", en: "celery", fa: "کرفس" },
+    { k: 8, w: "die Erbse", pl: "-n", bsp: "Gib 100 Gramm tiefgefrorene Erbsen dazu.", en: "pea", fa: "نخود فرنگی" },
+    { k: 8, w: "das Paprikapulver", pl: "Sg.", bsp: "Würze die Suppe mit scharfem Paprikapulver.", en: "paprika powder", fa: "پودر پاپریکا" },
+    { k: 8, w: "der Würfel", pl: "-", bsp: "Schneide die Kartoffeln in kleine Würfel.", en: "cube, dice", fa: "مکعب، تکهٔ مربعی" },
+    { k: 8, w: "der Topf", pl: "¨-e", bsp: "Gib ein wenig Öl in einen heißen Topf.", en: "pot", fa: "قابلمه" },
+    { k: 8, w: "das Küchenmesser", pl: "-", bsp: "Mit einem scharfen Küchenmesser geht das schneller.", en: "kitchen knife", fa: "چاقوی آشپزخانه" },
+    { k: 8, w: "das Schneidebrett", pl: "-er", bsp: "Leg die Zwiebeln auf das Schneidebrett.", en: "chopping board", fa: "تختهٔ برش" },
+    { k: 8, w: "die Pfanne", pl: "-n", bsp: "Brate das Fleisch in der Pfanne an.", en: "frying pan", fa: "ماهی‌تابه" },
+    { k: 8, w: "die Pfeffermühle", pl: "-n", bsp: "Kannst du mir die Pfeffermühle geben?", en: "pepper mill", fa: "آسیاب فلفل" },
+    { k: 8, w: "der Kochlöffel", pl: "-", bsp: "Rühr die Suppe mit dem Kochlöffel um.", en: "wooden spoon, cooking spoon", fa: "قاشق آشپزی" },
+    { k: 8, w: "die Schüssel", pl: "-n", bsp: "Gib den Salat in eine große Schüssel.", en: "bowl", fa: "کاسه" },
+    { k: 8, w: "die Küchenwaage", pl: "-n", bsp: "Mit der Küchenwaage wiege ich 100 Gramm Erbsen ab.", en: "kitchen scale", fa: "ترازوی آشپزخانه" },
+    { k: 8, w: "der Hobbykoch", pl: "¨-e", bsp: "Der Kurs ist für Hobbyköche ohne Erfahrung.", en: "amateur cook", fa: "آشپز آماتور" },
+    { k: 8, w: "der Höhepunkt", pl: "-e", bsp: "Das gemeinsame Essen war der Höhepunkt des Abends.", en: "highlight, high point", fa: "اوج، بهترین بخش" },
   ],
 
   verben: [
@@ -390,6 +442,26 @@ window.WORDS = {
     { k: 6, w: "sich richten", prep: "an + A.", bsp: "Das Angebot richtet sich an junge Menschen aus der Region.", en: "to be aimed at", fa: "برای کسی در نظر گرفته شدن", ex: "یعنی یک پیشنهاد یا متن برای گروه خاصی است. با an و حالت آکوزاتیو می‌آید." },
     { k: 6, w: "schwärmen", prep: "für + A., von + D.", bsp: "Sie schwärmt von ihrem Urlaub in Italien.", en: "to rave about, to be crazy about", fa: "با شوق تعریف کردن از، شیفته بودن", ex: "از چیزی با هیجان زیاد تعریف کردن. von + داتیو برای تعریف کردن، für + آکوزاتیو برای خیلی دوست داشتن." },
     { k: 6, w: "sich verpflichten", prep: "zu + D.", bsp: "Mit dem Arbeitsvertrag verpflichtet sich der Arbeitnehmer zur Einhaltung der Arbeitszeiten.", en: "to commit oneself to", fa: "متعهد شدن به", ex: "قول رسمی دادن که کاری را انجام می‌دهید. با zu + داتیو یا zu + مصدر می‌آید." },
+
+    // Sprachbausteine: Auftragserteilung und Bewerbung
+    { k: 0, w: "veranlassen", bsp: "Ihr Angebot hat uns dazu veranlasst, bei Ihnen zu bestellen.", en: "to prompt, to cause; to arrange", fa: "واداشتن، باعث شدن", ex: "باعث شدن که کسی کاری انجام دهد. اغلب با dazu و zu + مصدر می‌آید." },
+    { k: 0, w: "aufstocken", sep: "stockt auf", bsp: "Wir möchten unsere Bestellung um 50 Stück aufstocken.", en: "to increase, to top up", fa: "افزایش دادن، اضافه کردن", ex: "تعداد یا مقدار چیزی را بیشتر کردن؛ مثلاً سفارش، بودجه یا تعداد کارمندان." },
+    { k: 0, w: "sich erkundigen", prep: "nach + D.", bsp: "Ich möchte mich nach dem Stand meiner Bewerbung erkundigen.", en: "to inquire about", fa: "پرس‌وجو کردن دربارهٔ", ex: "شکل رسمی fragen است. با nach و حالت داتیو می‌آید. در نامه‌های رسمی زیاد استفاده می‌شود." },
+    { k: 0, w: "zusagen", sep: "sagt zu", bsp: "Die Tätigkeit bei Ihrem Unternehmen würde mir besser zusagen.", en: "to appeal to; to accept", fa: "خوشایند بودن؛ قبول کردن", ex: "دو معنی دارد: jemandem zusagen یعنی به نظر کسی خوب بودن (مثل gefallen). einen Termin zusagen یعنی قبول کردن." },
+    { k: 0, w: "sichergehen", sep: "geht sicher", bsp: "Ich möchte nur sichergehen, dass meine Bewerbung angekommen ist.", en: "to make sure", fa: "مطمئن شدن", ex: "کاری کردن تا مطمئن شوید چیزی درست است. معمولاً بعد از آن dass می‌آید." },
+
+    // Kapitel 7: Gesundheit
+    { k: 7, w: "sich drehen", prep: "um + A.", bsp: "Bei kranken Menschen dreht sich alles um das Thema Gesundheit.", en: "to be about, to revolve around", fa: "دربارهٔ چیزی بودن، حول چیزی چرخیدن", ex: "Es dreht sich um … یعنی موضوع اصلی چیزی است. با um و حالت آکوزاتیو می‌آید." },
+    { k: 7, w: "leiden", prep: "unter + D., an + D.", bsp: "Der ältere Herr hat Rheuma und leidet unter starken Schmerzen.", en: "to suffer from", fa: "رنج بردن از", ex: "unter برای درد یا مشکل (unter Schmerzen، unter Stress)، an برای بیماری (an Rheuma). هر دو با داتیو." },
+    { k: 7, w: "motivieren", prep: "zu + D.", bsp: "Die Physiotherapeutin motiviert ihre Patientin zu täglichen Rückenübungen.", en: "to motivate to", fa: "تشویق کردن به", ex: "به کسی انگیزه دادن که کاری را انجام دهد. با zu و حالت داتیو می‌آید." },
+    { k: 7, w: "sich kümmern", prep: "um + A.", bsp: "Marco kümmert sich sehr liebevoll um seine Mutter.", en: "to take care of", fa: "مراقبت کردن از، رسیدگی کردن به", ex: "از کسی یا کاری مراقبت کردن. با um و حالت آکوزاتیو می‌آید." },
+
+    // Kapitel 8: In der Gastronomie
+    { k: 8, w: "würzen", bsp: "Würze die Suppe mit Pfeffer und Paprikapulver.", en: "to season, to spice", fa: "ادویه زدن", ex: "به غذا نمک، فلفل یا ادویه اضافه کردن." },
+    { k: 8, w: "schälen", bsp: "Zuerst schälst du die Kartoffeln.", en: "to peel", fa: "پوست کندن", ex: "پوست میوه یا سبزی را جدا کردن." },
+    { k: 8, w: "anbraten", sep: "brät an", bsp: "Brate die Zwiebeln kurz in Öl an.", en: "to sear, to fry briefly", fa: "کمی سرخ کردن", ex: "غذا را در روغن داغ برای مدت کوتاه سرخ کردن. صرف فعل نامنظم است: du brätst an، er brät an." },
+    { k: 8, w: "ablöschen", sep: "löscht ab", bsp: "Lösche das Gemüse mit heißer Gemüsebrühe ab.", en: "to deglaze (add liquid)", fa: "مایع اضافه کردن به (غذای سرخ‌شده)", ex: "بعد از سرخ کردن، آب یا آب‌گوشت روی غذا در تابه ریختن." },
+    { k: 8, w: "werben", prep: "mit + D.", bsp: "Das Restaurant wirbt mit einem entspannenden Ambiente.", en: "to advertise with", fa: "تبلیغ کردن با", ex: "برای چیزی تبلیغ کردن و ویژگی خوبش را نشان دادن. صرف نامنظم: er wirbt. با mit و داتیو می‌آید." },
   ],
 
   adjektive: [
@@ -502,6 +574,36 @@ window.WORDS = {
     { k: 6, w: "überzeugt", prep: "von + D.", bsp: "Der Bewerber ist fest von der Qualität der Ausbildung überzeugt.", en: "convinced of", fa: "متقاعد، مطمئن از", ex: "کاملاً باور داشتن که چیزی درست یا خوب است. با von و حالت داتیو می‌آید." },
     { k: 6, w: "wertvoll", bsp: "Ihre Erfahrung ist für uns sehr wertvoll.", en: "valuable", fa: "باارزش", ex: "چیزی که ارزش زیادی دارد. متضاد wertlos." },
     { k: 6, w: "wertlos", bsp: "Ohne Unterschrift ist der Vertrag wertlos.", en: "worthless", fa: "بی‌ارزش", ex: "چیزی که هیچ ارزشی ندارد. متضاد wertvoll." },
+
+    // Sprachbausteine: Auftragserteilung
+    { k: 0, w: "aufschlussreich", bsp: "Vielen Dank für das aufschlussreiche Gespräch.", en: "informative, revealing", fa: "روشنگر، پرفایده", ex: "چیزی که اطلاعات مفید و تازه می‌دهد. در نامه‌های رسمی زیاد می‌آید." },
+    { k: 0, w: "hochwertig", bsp: "Wir verkaufen nur hochwertige Dekoartikel.", en: "high-quality", fa: "باکیفیت", ex: "با کیفیت خیلی خوب. متضاد minderwertig." },
+    { k: 0, w: "baldig", bsp: "Ich freue mich über eine baldige Rückmeldung.", en: "early, speedy", fa: "زودهنگام، به‌زودی", ex: "صفت از bald. در پایان نامه زیاد می‌آید: auf eine baldige Antwort." },
+
+    // Kapitel 7: Gesundheit
+    { k: 7, w: "pflegebedürftig", bsp: "Marcos Mutter ist seit einiger Zeit pflegebedürftig.", en: "in need of care", fa: "نیازمند مراقبت", ex: "کسی که به خاطر سن یا بیماری نمی‌تواند خودش کارهایش را انجام دهد و به مراقبت نیاز دارد." },
+    { k: 7, w: "liebevoll", bsp: "Marco kümmert sich sehr liebevoll um seine Mutter.", en: "loving, affectionate", fa: "با محبت", ex: "با عشق و مهربانی." },
+    { k: 7, w: "verwirrt", bsp: "Manchmal ist sie etwas verwirrt und erkennt die Pflegerin nicht.", en: "confused", fa: "گیج، سردرگم", ex: "کسی که نمی‌تواند درست فکر کند یا موقعیت را نمی‌فهمد." },
+    { k: 7, w: "regelmäßig", bsp: "Regelmäßig fünfmal pro Woche kommt eine Pflegekraft.", en: "regular(ly)", fa: "منظم، به‌طور مرتب", ex: "در فاصله‌های زمانی ثابت؛ مثلاً هر روز یا هر هفته." },
+
+    // Kapitel 8: In der Gastronomie
+    { k: 8, w: "vegetarisch", bsp: "Gibt es da auch ein vegetarisches Gericht?", en: "vegetarian", fa: "گیاهی (بدون گوشت)", ex: "بدون گوشت و ماهی." },
+    { k: 8, w: "vegan", bsp: "Das Restaurant bietet auch vegane Gerichte an.", en: "vegan", fa: "وگان", ex: "بدون هیچ محصول حیوانی؛ نه گوشت، نه شیر، نه تخم‌مرغ." },
+    { k: 8, w: "traditionell", bsp: "Der traditionelle Lammbraten ist das schwierigste Gericht.", en: "traditional", fa: "سنتی", ex: "به روشی که از قدیم مرسوم است." },
+    { k: 8, w: "mild", bsp: "Ich hätte gern ein mildes Curry, nicht so scharf.", en: "mild", fa: "ملایم", ex: "برای غذا: نه تند و نه خیلی پرادویه. متضاد scharf." },
+    { k: 8, w: "scharf", bsp: "Das Essen bei Chili & Co. ist sehr scharf.", en: "spicy, hot; sharp", fa: "تند؛ تیز", ex: "برای غذا یعنی تند؛ برای چاقو یعنی تیز: ein scharfes Messer." },
+    { k: 8, w: "würzig", bsp: "Die Suppe ist schön würzig.", en: "spicy, well-seasoned", fa: "خوش‌ادویه", ex: "با ادویه و طعم قوی، اما نه لزوماً تند." },
+    { k: 8, w: "umfangreich", bsp: "Die Weinbar hat eine umfangreiche Weinkarte.", en: "extensive, wide-ranging", fa: "گسترده، مفصل", ex: "با تعداد یا مقدار زیاد." },
+    { k: 8, w: "reichhaltig", bsp: "Das Hotel bietet ein reichhaltiges Frühstück.", en: "rich, plentiful", fa: "مفصل، فراوان", ex: "با چیزهای زیاد و متنوع؛ مثلاً یک صبحانهٔ کامل." },
+    { k: 8, w: "erstklassig", bsp: "Das Ambiente in der Weinbar ist erstklassig.", en: "first-class, excellent", fa: "درجه‌یک", ex: "از بهترین کیفیت." },
+    { k: 8, w: "knusprig", bsp: "Dazu passt knuspriges Weißbrot.", en: "crispy, crunchy", fa: "ترد", ex: "بیرون سفت و ترد؛ مثلاً نان تازه یا مرغ سرخ‌شده." },
+    { k: 8, w: "riesig", bsp: "Ich habe schon einen riesigen Hunger!", en: "huge, enormous", fa: "خیلی بزرگ، عظیم", ex: "خیلی بزرگ. riesigen Hunger haben یعنی خیلی گرسنه بودن." },
+    { k: 8, w: "entspannend", bsp: "Das Restaurant hat ein entspannendes Ambiente.", en: "relaxing", fa: "آرامش‌بخش", ex: "چیزی که به آدم آرامش می‌دهد. فرقش با entspannt: entspannt یعنی خود آدم آرام است." },
+    { k: 8, w: "lecker", bsp: "Das Essen nach dem Kochen ist immer lecker.", en: "tasty, delicious", fa: "خوشمزه", ex: "طعم خوب دارد. بیشتر در زبان روزمره." },
+    { k: 8, w: "stark", bsp: "Nach dem Essen möchte ich einen starken Kaffee.", en: "strong", fa: "قوی، پررنگ", ex: "برای قهوه یعنی غلیظ و پررنگ؛ برای آدم یعنی قوی." },
+    { k: 8, w: "engagiert", bsp: "Der engagierte Leiter macht seine Sache sehr gut.", en: "committed, dedicated", fa: "متعهد، فعال", ex: "کسی که با انرژی و علاقه زیاد کار می‌کند." },
+    { k: 8, w: "geduldig", bsp: "Der geduldige Kursleiter hilft allen Teilnehmenden.", en: "patient", fa: "صبور", ex: "کسی که آرام می‌ماند و عجله ندارد. اسمش die Geduld است." },
+    { k: 8, w: "unerfahren", bsp: "Er hilft den unerfahrenen Teilnehmenden.", en: "inexperienced", fa: "بی‌تجربه", ex: "کسی که هنوز تجربهٔ زیادی ندارد. متضاد erfahren." },
   ],
 
   andere: [
@@ -538,6 +640,38 @@ window.WORDS = {
     { k: 5, w: "führendes Unternehmen", bsp: "Wir sind ein führendes Unternehmen in der Reisebranche.", en: "leading company", fa: "شرکت پیشرو", ex: "یکی از بزرگ‌ترین یا بهترین شرکت‌ها در یک رشته. شرکت‌ها در آگهی کار زیاد خود را این‌طور معرفی می‌کنند." },
     { k: 5, w: "Dokumente für die Hochschulzulassung", bsp: "Die Dokumente für die Hochschulzulassung schicken Sie bitte bis zum 15. Juli.", en: "documents for university admission", fa: "مدارک لازم برای پذیرش دانشگاه", ex: "مدارکی مثل دیپلم و نمرات که برای قبولی در دانشگاه باید فرستاد." },
     { k: 5, w: "überdurchschnittliche Vergütung", bsp: "Wir bieten Ihnen eine überdurchschnittliche Vergütung.", en: "above-average pay", fa: "حقوق بالاتر از میانگین", ex: "حقوقی که از حقوق معمول در آن شغل بیشتر است. Vergütung شکل رسمی Gehalt است." },
+
+    // Sprachbausteine Teil 2: Auftragserteilung (Übung 4, Antworten 52 bis 57)
+    { k: 0, w: "Ihre Anfrage", bsp: "Vielen Dank für Ihre Anfrage vom 3. März.", en: "your inquiry", fa: "درخواست شما، استعلام شما", ex: "وقتی مشتری چیزی را می‌پرسد یا قیمت می‌خواهد. شرکت در جواب می‌نویسد: Vielen Dank für Ihre Anfrage." },
+    { k: 0, w: "Ihre Angaben", bsp: "Bitte prüfen Sie Ihre Angaben noch einmal.", en: "your details, your information", fa: "اطلاعات شما", ex: "اطلاعاتی که کسی داده است؛ مثلاً نام و آدرس در یک فرم." },
+    { k: 0, w: "Ihr Angebot", bsp: "Vielen Dank für das Gespräch, bei dem Sie uns Ihr Angebot nochmals erklärt haben.", en: "your offer, your quote", fa: "پیشنهاد شما، پیش‌فاکتور شما", ex: "در Übung 4 جواب 52 همین است: فروشنده پیشنهادش را توضیح داده است. Angebot را فروشنده می‌دهد، Anfrage را مشتری." },
+    { k: 0, w: "neue Bestellung", bsp: "Wir möchten eine neue Bestellung aufgeben.", en: "new order", fa: "سفارش جدید", ex: "eine Bestellung aufgeben یعنی سفارش دادن." },
+    { k: 0, w: "letzter Auftrag", bsp: "Daher würden wir gern unseren letzten Auftrag erweitern.", en: "last order", fa: "آخرین سفارش", ex: "در Übung 4 جواب 53 همین است: einen Auftrag erweitern یعنی سفارش را بزرگ‌تر کردن." },
+    { k: 0, w: "vorherige Lieferung", bsp: "Die vorherige Lieferung kam zu spät.", en: "previous delivery", fa: "تحویل قبلی", ex: "تحویلی که قبل از این یکی بود." },
+    { k: 0, w: "beauftragte Lieferung", bsp: "Wir möchten die beauftragte Lieferung aufstocken.", en: "commissioned delivery", fa: "تحویلِ سفارش‌داده‌شده", ex: "تحویلی که رسماً سفارش داده شده است. در Übung 4 جواب 54 همین است: die beauftragte Lieferung aufstocken." },
+    { k: 0, w: "geplante Auslieferung", bsp: "Die geplante Auslieferung ist am Montag.", en: "planned delivery", fa: "ارسال برنامه‌ریزی‌شده", ex: "Auslieferung یعنی فرستادن کالا از انبار به مشتری." },
+    { k: 0, w: "besprochene Einlieferung", bsp: "Die besprochene Einlieferung ins Lager erfolgt morgen.", en: "agreed delivery (into storage)", fa: "تحویل توافق‌شده (به انبار)", ex: "Einlieferung یعنی آوردن چیزی به یک جا، مثلاً به انبار یا بیمارستان. در Übung 4 جواب درست نیست." },
+    { k: 0, w: "bezahlte Rechnungen", bsp: "Bitte bewahren Sie alle bezahlten Rechnungen auf.", en: "paid invoices", fa: "فاکتورهای پرداخت‌شده", ex: "فاکتورهایی که پولشان داده شده است." },
+    { k: 0, w: "aufgeführte Kosten", bsp: "Wie besprochen, sind alle aufgeführten Kosten Nettopreise.", en: "listed costs", fa: "هزینه‌های ذکرشده", ex: "aufführen یعنی در یک فهرست نوشتن. در Übung 4 جواب 55 همین است." },
+    { k: 0, w: "genannte Kalkulationen", bsp: "Die genannten Kalkulationen sind nur Schätzungen.", en: "mentioned calculations", fa: "محاسبات ذکرشده", ex: "Kalkulation یعنی حساب کردن قیمت یا هزینه از قبل." },
+    { k: 0, w: "zuverlässige Ausführung", bsp: "Wir danken Ihnen für die zuverlässige Ausführung des Auftrags.", en: "reliable execution", fa: "انجام قابل‌اعتماد", ex: "Ausführung یعنی انجام دادن یک سفارش یا کار." },
+    { k: 0, w: "prompte Bearbeitung", bsp: "Vielen Dank für die prompte Bearbeitung meiner Anfrage.", en: "prompt processing", fa: "رسیدگی سریع", ex: "prompt یعنی خیلی سریع. Bearbeitung یعنی رسیدگی به یک درخواست یا پرونده." },
+    { k: 0, w: "kurze Auftragsbestätigung", bsp: "Wir bitten um eine kurze Auftragsbestätigung.", en: "short order confirmation", fa: "تأیید کوتاه سفارش", ex: "پیامی که فروشنده می‌فرستد تا بگوید سفارش را گرفته است. در Übung 4 جواب 56 همین است." },
+    { k: 0, w: "auf unsere Loyalität zählen", bsp: "Sie können auf unsere Loyalität zählen.", en: "to count on our loyalty", fa: "روی وفاداری ما حساب کنید", ex: "auf etwas zählen یعنی به چیزی اعتماد کردن. با auf و آکوزاتیو." },
+    { k: 0, w: "mit weiteren Aufträgen rechnen", bsp: "Sie können mit weiteren Aufträgen rechnen, wenn diese Bestellung zu unserer Zufriedenheit ausgeführt wird.", en: "to expect further orders", fa: "منتظر سفارش‌های بیشتر بودن", ex: "mit etwas rechnen یعنی انتظار چیزی را داشتن. در Übung 4 جواب 57 همین است." },
+    { k: 0, w: "von unserer Firma profitieren", bsp: "Viele Kunden profitieren von unserer Firma.", en: "to benefit from our company", fa: "از شرکت ما سود بردن", ex: "profitieren همیشه با von و داتیو می‌آید." },
+    { k: 0, w: "einen Auftrag erteilen", bsp: "Wir möchten Ihnen hiermit einen Auftrag erteilen.", en: "to place an order", fa: "سفارش دادن", ex: "شکل رسمی bestellen. اسمش die Auftragserteilung است." },
+    { k: 0, w: "zur Verfügung stehen", bsp: "Für Fragen stehe ich Ihnen gerne zur Verfügung.", en: "to be available", fa: "در دسترس بودن", ex: "جملهٔ پایانی رایج در نامهٔ رسمی. Fragen zu … یعنی سؤال دربارهٔ؛ در Übung 4 جواب 51 zu است." },
+
+    // Kapitel 7: Meinung und Gesundheit
+    { k: 7, w: "angewiesen sein", bsp: "Er ist auf professionelle Hilfe angewiesen.", en: "to depend on", fa: "وابسته بودن به", ex: "بدون کمک کسی یا چیزی نمی‌توان کاری کرد. با auf + آکوزاتیو می‌آید." },
+    { k: 7, w: "gefragt sein", bsp: "Dann ist viel Geduld gefragt.", en: "to be needed, to be in demand", fa: "لازم بودن، مورد تقاضا بودن", ex: "یعنی به چیزی نیاز است. همچنین: Fachkräfte sind sehr gefragt یعنی تقاضا برایشان زیاد است." },
+    { k: 7, w: "meiner Ansicht nach", bsp: "Meiner Ansicht nach ist Bewegung das Wichtigste.", en: "in my opinion", fa: "به نظر من", ex: "شکل رسمی ich finde. بعد از آن فعل بلافاصله می‌آید: Meiner Ansicht nach ist …" },
+    { k: 7, w: "geteilter Meinung sein", bsp: "Ich bin da geteilter Meinung.", en: "to have mixed feelings, to be undecided", fa: "نظر دوگانه داشتن", ex: "یعنی هم موافق و هم مخالف هستید. وقتی دیگران geteilter Meinung هستند یعنی نظرشان با هم فرق دارد." },
+    { k: 7, w: "Das sehe ich anders.", bsp: "Das sehe ich anders. Sport ist nicht immer gesund.", en: "I see it differently.", fa: "من این را طور دیگری می‌بینم.", ex: "راه مؤدبانه برای مخالفت کردن در بحث." },
+    { k: 7, w: "Was würden Sie mir empfehlen?", bsp: "Ich habe oft Rückenschmerzen. Was würden Sie mir empfehlen?", en: "What would you recommend?", fa: "به من چه پیشنهادی می‌کنید؟", ex: "سؤال مؤدبانه برای گرفتن توصیه، مثلاً از پزشک یا فروشنده." },
+    { k: 7, w: "auf jeden Fall", bsp: "Besorgen Sie auf jeden Fall zuerst ein Rezept.", en: "in any case, definitely", fa: "در هر صورت، حتماً", ex: "برای تأکید: این کار حتماً لازم است. مثل unbedingt." },
+    { k: 7, w: "Es ist nie zu spät.", bsp: "Es ist nie zu spät, mit Sport anzufangen.", en: "It is never too late.", fa: "هیچ‌وقت دیر نیست.", ex: "بعد از آن معمولاً zu + مصدر می‌آید." },
   ],
   // was = what it expresses, bau = where the verb goes, satz = sentence pattern.
   // In bsp and bsp2, *word* is highlighted: the connector and the verb it moves.
@@ -548,6 +682,7 @@ window.WORDS = {
     { k: 0, w: "obwohl", was: "Gegengrund", bau: "Verb am Ende", satz: "Hauptsatz, obwohl … Verb.", bsp: "Wir geben einen Rabatt, *obwohl* die Verantwortung nicht bei uns *liegt*.", bsp2: "*Obwohl* wir uns bemüht *haben*, *konnten* wir nicht fertig werden.", en: "although", fa: "با اینکه، اگرچه", ex: "نتیجه برخلاف انتظار است. فعل به آخر می‌رود. فرقش با trotzdem: obwohl خود آن مانع را می‌گوید، اما trotzdem در جمله دوم نتیجه غیرمنتظره را می‌آورد." },
     { k: 0, w: "dass", was: "Inhalt", bau: "Verb am Ende", satz: "Hauptsatz, dass … Verb.", bsp: "Ich möchte betonen, *dass* dieses Zeugnis für mich wichtig *ist*.", en: "that", fa: "که", ex: "بعد از فعل‌هایی مثل sagen, wissen, glauben, betonen, hoffen محتوای حرف یا فکر را می‌آورد. فعل به آخر می‌رود. با das (حرف تعریف یا ضمیر) اشتباه نشود." },
     { k: 0, w: "ob", was: "indirekte Frage", bau: "Verb am Ende", satz: "Hauptsatz, ob … Verb.", bsp: "Bitte teilen Sie uns mit, *ob* Sie auch Jalousien *wünschen*.", en: "whether, if", fa: "آیا، که آیا", ex: "سؤال بله یا نه را غیرمستقیم می‌کند. فعل به آخر می‌رود. اشتباه رایج: به جای ob از wenn استفاده کردن. اگر در فارسی بشود گفت «آیا»، ob درست است." },
+    { k: 0, w: "wann", was: "indirekte Frage", bau: "Verb am Ende", satz: "Hauptsatz, wann … Verb.", bsp: "Könnten Sie mir mitteilen, *wann* ich mit einer Antwort rechnen *kann*?", bsp2: "Ich möchte wissen, *wann* der Kurs *beginnt*.", en: "when", fa: "کی، چه وقت", ex: "سؤال دربارهٔ زمان را غیرمستقیم می‌کند و فعل به آخر می‌رود. فرق با wenn: wann برای سؤال است، wenn برای شرط یا کاری که تکرار می‌شود. فرق با als: als برای یک بار در گذشته است." },
     { k: 0, w: "wenn", was: "Bedingung, Zeit", bau: "Verb am Ende", satz: "Wenn … Verb, Verb …", bsp: "Ich würde mich freuen, *wenn* ich Ihr Unternehmen unterstützen *könnte*.", bsp2: "*Wenn* es *regnet*, *bleiben* wir zu Hause.", en: "if, when, whenever", fa: "اگر، هر وقت", ex: "برای شرط، و برای اتفاقی که در حال یا آینده است یا چند بار تکرار شده است. فعل به آخر می‌رود. برای یک بار در گذشته باید als گفت، نه wenn." },
     { k: 0, w: "falls", was: "Bedingung", bau: "Verb am Ende", satz: "Falls … Verb, Verb …", bsp: "*Falls* Sie noch Fragen *haben*, *können* Sie mich anrufen.", en: "in case, if", fa: "در صورتی که", ex: "مثل wenn برای شرط است، اما یعنی این اتفاق شاید بیفتد و شاید نیفتد. فقط برای شرط است و معنی زمانی ندارد." },
     { k: 0, w: "als", was: "Zeit", bau: "Verb am Ende", satz: "Als … Verb, Verb …", bsp: "*Als* ich in Deutschland *ankam*, *sprach* ich kein Deutsch.", en: "when (once in the past)", fa: "وقتی که (یک بار در گذشته)", ex: "فقط برای یک اتفاق یا یک دوره در گذشته. فعل به آخر می‌رود. قاعده: یک بار در گذشته als، چند بار یا حال و آینده wenn." },
@@ -563,6 +698,7 @@ window.WORDS = {
     { k: 0, w: "sodass", was: "Folge", bau: "Verb am Ende", satz: "Hauptsatz, sodass … Verb.", bsp: "Es kam zu Verzögerungen, *sodass* wir später liefern *mussten*.", en: "so that (with the result)", fa: "به طوری که", ex: "نتیجه را می‌گوید، نه هدف را. فرقش با damit: damit برای هدف است و sodass برای اتفاقی که در نتیجه افتاده است. فعل به آخر می‌رود." },
 
     // Position 1: Verb direkt danach
+    { k: 0, w: "inzwischen", was: "Zeit", bau: "Verb direkt danach", satz: "Inzwischen + Verb + Subjekt …", bsp: "*Inzwischen sind* seit dem Bewerbungsschluss einige Wochen vergangen.", en: "meanwhile, by now", fa: "تا حالا، در این فاصله", ex: "یعنی از آن زمان تا الان. اگر اول جمله بیاید، فعل بلافاصله بعد از آن می‌آید. در Übung 4 جواب 46 همین است." },
     { k: 0, w: "deshalb", was: "Folge", bau: "Verb direkt danach", satz: "Hauptsatz. Deshalb Verb + Subjekt …", bsp: "Ich bin krank, *deshalb bleibe* ich heute zu Hause.", en: "therefore, that's why", fa: "به همین دلیل", ex: "جمله اول دلیل است و جمله deshalb نتیجه. برعکس weil است: در weil دلیل بعد از کلمه می‌آید، در deshalb نتیجه. فعل بلافاصله بعد از کلمه می‌آید، چون خود کلمه جای اول را گرفته است. deswegen و darum هم همین معنی و همین ساختار را دارند." },
     { k: 0, w: "daher", was: "Folge", bau: "Verb direkt danach", satz: "Hauptsatz. Daher Verb + Subjekt …", bsp: "Ich reise ins Ausland. *Daher werde* ich nicht gut erreichbar sein.", en: "therefore, hence", fa: "از این رو", ex: "مثل deshalb است، اما کمی رسمی‌تر و مناسب نامه. فعل بلافاصله بعد از آن می‌آید. در بخش Sprachbausteine زیاد می‌آید." },
     { k: 0, w: "darum", was: "Folge", bau: "Verb direkt danach", satz: "Hauptsatz. Darum Verb + Subjekt …", bsp: "Der Bus kam nicht, *darum bin* ich zu spät.", en: "that's why", fa: "برای همین", ex: "مثل deshalb است، اما بیشتر در گفتار می‌آید. فعل بلافاصله بعد از آن می‌آید." },
@@ -586,6 +722,7 @@ window.WORDS = {
     { k: 0, w: "nämlich", was: "Grund", bau: "nach dem Verb", satz: "Hauptsatz. Subjekt + Verb + nämlich …", bsp: "Ich komme später. Ich *habe nämlich* einen Termin.", en: "you see, because", fa: "آخر، چون که", ex: "دلیل را بعد از جمله اول می‌آورد. هیچ وقت اول جمله نمی‌آید و بعد از فعل قرار می‌گیرد. این جمله همیشه بعد از جمله اصلی می‌آید." },
 
     // Präposition: kein Verb, ein Nomen
+    { k: 0, w: "gemäß", was: "Übereinstimmung", bau: "Präposition + Dativ", satz: "gemäß + Dativ (+ Nomen)", bsp: "*Gemäß* Ihrem Angebot vom 1. Juli bitten wir um die Lieferung.", en: "according to, in accordance with", fa: "طبق، بر اساس", ex: "شکل رسمی laut یا nach است. بعد از آن داتیو می‌آید. در نامه‌های رسمی و قراردادها زیاد است." },
     { k: 0, w: "wegen", was: "Grund", bau: "Präposition + Genitiv", satz: "wegen + Nomen", bsp: "*Wegen* der guten Auftragslage stellen wir neue Mitarbeiter ein.", en: "because of", fa: "به خاطر", ex: "مثل weil است، اما بعد از آن یک اسم می‌آید و جمله و فعلی ندارد. Weil wir Kinder haben = Wegen unserer Kinder. در گفتار داتیو هم می‌شنوید، اما در آزمون ژنیتیو بنویسید." },
     { k: 0, w: "aufgrund", was: "Grund", bau: "Präposition + Genitiv", satz: "aufgrund + Nomen", bsp: "*Aufgrund* des Wetters fällt das Fest aus.", en: "due to", fa: "به دلیل", ex: "شکل رسمی wegen است و بعد از آن ژنیتیو می‌آید. در نامه‌های اداری زیاد دیده می‌شود." },
     { k: 0, w: "dank", was: "positiver Grund", bau: "Präposition + Genitiv/Dativ", satz: "dank + Nomen", bsp: "*Dank* der guten Auftragslage können wir neue Stellen schaffen.", en: "thanks to", fa: "به لطف", ex: "مثل wegen است، اما فقط برای دلیل خوب. برای دلیل بد از wegen استفاده کنید." },

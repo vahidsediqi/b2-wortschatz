@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Figtree:wght@400;500;600&family=Vazirmatn:wght@400;500;700&display=swap">
-  <link rel="stylesheet" href="styles.css?v=9">
+  <link rel="stylesheet" href="styles.css?v=10">
 </head>
 <body>
   <section id="listView">
@@ -26,6 +26,15 @@
       </div>
     </header>
     <main class="wrap">
+      <div class="plan" id="plan" hidden></div>
+      <div class="month-top" id="monthHead" hidden>
+        <button class="month-back" id="monthBack" type="button">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 5-7 7 7 7"/></svg>
+          Monatsplan
+        </button>
+        <h2 class="month-title" id="monthTitle"></h2>
+        <p class="month-note" id="monthNote"></p>
+      </div>
       <div class="tools">
         <label class="search">
           <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
@@ -139,8 +148,9 @@
     </div>
   </dialog>
 
-  <script src="words.js?v=9"></script>
-  <script src="sync.js?v=9"></script>
-  <script src="app.js?v=9"></script>
+  <script src="words.js?v=10"></script>
+  <script src="plan.js?v=10"></script>
+  <script src="sync.js?v=10"></script>
+  <script src="app.js?v=10"></script>
 </body>
 </html>
